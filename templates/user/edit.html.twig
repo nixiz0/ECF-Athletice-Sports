@@ -1,13 +1,17 @@
 {% extends 'header_footer.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %} Athletice Modification Utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+    <link rel="stylesheet" href="{{asset('user.css')}}">
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1 class="text-center"> Modification Utilisateur </h1>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <div class="font-size-user" style="margin:2%;">
+        {{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    {{ include('user/_delete_form.html.twig') }}
+        <a class="btn btn-dark" href="{{ path('app_user_index') }}">Précédent</a>
+
+        {{ include('user/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

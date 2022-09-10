@@ -1,11 +1,15 @@
 {% extends 'header_footer.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %} Athletice Création User {% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
+<link rel="stylesheet" href="{{asset('user.css')}}">
 
-    {{ include('user/_form.html.twig') }}
-
-    <a href="{{ path('app_user_index') }}">back to list</a>
+<div style="margin:3%;">
+    <h1 class="text-center"> Création d'un utilisateur </h1>
+        <div class="font-size-user">
+            {{ include('user/_form.html.twig') }}
+            <a class="btn btn-dark" href="{{ path('app_user_index') }}">Précédent </a>
+        </div>
+</div>
 {% endblock %}

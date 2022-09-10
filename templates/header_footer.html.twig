@@ -31,8 +31,8 @@
                     <ul class="menuderoulant">
                         <li> <a href="#"> <img class="profil_utilisateur" src="{{asset('Ressources/utilisateur_profil_default.png')}}"> </a>
                             <ul class="sousmenu">
-                                <li> <a style="color:black;" href="#"> Connexion</a></li>
-                                <li> <a style="color:black;" href="#"> Inscription</a></li>
+                                <li> <span style="color:black;"> Bonjour ('name')</span></li>
+                                <li> <span style="color:black;"> (insérer le role)</span></li>
                             </ul>
                     </ul>
                 </div>
@@ -43,10 +43,13 @@
     <div class="header2">
         <div class="list_pages">
             <div class="sous_nav">
+            {% block nav %}
+                <a class="txt_nav" href="{{ path('app_user_index')}}"> Utilisateurs </a>
                 <a class="txt_nav" href="{{ path('app_dashboard')}}"> Dashboard </a>
                 <a class="txt_nav" href="#"> Franchises </a>
                 <a class="txt_nav" href="#"> Structures </a>
                 <a class="txt_nav" href="#"> Options </a>
+            {% endblock %}
             </div>
         </div>
     </div>

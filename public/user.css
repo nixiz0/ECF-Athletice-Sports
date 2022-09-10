@@ -1,0 +1,25 @@
+html {
+    overflow-x:hidden;
+}
+
+/* Adapter pour Telephone / Tablette */
+.font-size-title-user {
+    font-size: 17px;
+}
+
+.font-size-user {
+    font-size: 15px;
+}
+
+@media (min-width:940px) {
+    /* Adapter pour Ecran */
+    .font-size-title-user {
+        font-size: 20px;
+    }
+
+    .font-size-user {
+        font-size: 20px;
+    }
+
+    
+}
