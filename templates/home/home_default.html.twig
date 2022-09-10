@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{#METTRE LA DESCRIPTION DU SITE POUR LE SEO#}"/>
+    <link rel="icon" href="{{asset('Ressources/icone_header.png')}}"> {# Icone à mettre pour la barre de navigation #}
+    <title> {% block title %} Athletice Sports Accueil {% endblock %} </title>
+    {% block stylesheets %}  {% endblock %}
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
+    <link rel="stylesheet" href="{{asset('home.css')}}">
+</head>
+
+<body>
+    <div class="flex_main">
+        <img class="main_img" src="{{ asset('Ressources/background_accueil.png')}}">
+        <form class="position_change">
+        <!-- Email input -->
+        <div class="form-outline mb-4 text_change">
+            <input type="email" id="form2Example1" class="form-control" />
+            <label class="form-label" for="form2Example1">Email address</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4 text_change">
+            <input type="password" id="form2Example2" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-center text_change">
+            <!-- Checkbox -->
+            <div class="form-check text_change">
+                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>
+            </div>
+
+            <div class="col">
+            <!-- Simple link -->
+            <a style="color:white;" href="#!">Forgot password?</a>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block mb-4 text_change">Sign in</button>
+
+        <!-- Register buttons -->
+        <div class="text-center text_change">
+            <p>Not a member? <a style="color:white;" href="#!">Register</a></p>
+        </div>
+        </form>
+    </div>
+
+
+
+    <div>
+        {% block body %}
+               
+        {% endblock body %}
+    </div>
+</body>
+</html>

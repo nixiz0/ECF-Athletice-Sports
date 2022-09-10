@@ -1,0 +1,38 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(24, 24, 24);
+}
+
+/* Format Telephone */
+
+.flex_main {
+   display: flex;
+   justify-content: center;
+}
+
+.main_img {
+    width: 100%;
+    position:relative;
+    margin: 0%;
+    padding: 0%;
+}
+
+.position_change {
+    position:absolute;
+    margin-top: 74%;
+}
+
+.text_change {
+    color:white;
+    text-shadow: 3px 2px 2px black;
+}
+
+
+/* Format Ecran */
+@media (min-width:750px) {
+    .position_change {
+        position:absolute;
+        margin-top: 30%;
+    }
+}
