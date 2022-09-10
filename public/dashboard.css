@@ -1,0 +1,9 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.main_img {
+    width: 100%;
+    position:relative;
+}

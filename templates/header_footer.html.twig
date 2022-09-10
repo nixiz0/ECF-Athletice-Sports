@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{#METTRE LA DESCRIPTION DU SITE POUR LE SEO#}"/>
+    <link rel="icon" href="{{asset('Ressources/icone_header.png')}}"> {# Icone à mettre pour la barre de navigation #}
+    <title> {% block title %} Athletice Sports {% endblock %} </title>
+    {% block stylesheets %}  {% endblock %}
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
+    <link rel="stylesheet" href="{{asset('styles_header-footer.css')}}">
+</head>
+
+<body>
+    <header class="head_container">
+        <div>
+            <div class="main_title">
+                <span class="site_name"> Athletice </span>
+                    <div class="img_sidebar" id="sidebar" onclick="sidebar()">
+                        <img src="{{asset('Ressources/emoji _liste.png')}}" height="28px" width="auto"> 
+                    </div>
+            </div>
+        </div>
+
+        <div> 
+            <form class="search_bar" role="search">
+                <input class="label_search" type="search" placeholder="Rechercher..." aria-label="Search">
+                <button class="search_submit" type="submit"> <img src="{{asset('Ressources/emoji_search_logo.png')}}" height="28px" width="auto"> </button>
+                <div class="img_utilisateur">
+                    <ul class="menuderoulant">
+                        <li> <a href="#"> <img class="profil_utilisateur" src="{{asset('Ressources/utilisateur_profil_default.png')}}"> </a>
+                            <ul class="sousmenu">
+                                <li> <a style="color:black;" href="#"> Connexion</a></li>
+                                <li> <a style="color:black;" href="#"> Inscription</a></li>
+                            </ul>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <div class="header2">
+        <div class="list_pages">
+            <div class="sous_nav">
+                <a class="txt_nav" href="{{path('app_dashboard')}}"> Dashboard </a>
+                <a class="txt_nav" href="#"> Franchises </a>
+                <a class="txt_nav" href="#"> Structures </a>
+                <a class="txt_nav" href="#"> Options </a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center;">
+        {% for message in app.session.flashbag.get('info')%}
+            <div class="alert alert-info">
+                {{message}}
+            </div>
+        {% endfor %}
+
+        {% for message in app.session.flashbag.get('success')%}
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+        {% endfor %}
+
+        {% for message in app.session.flashbag.get('error')%}   
+            <div class="alert alert-danger">
+                {{message}}
+            </div>
+        {% endfor %}
+    </div>
+
+    {# modification du body : #}
+    <div>
+        {% block body %}
+               
+        {% endblock body %}
+    </div>
+
+    <footer>
+        <div class="sous_footer">
+            <a class="txt_footer" href="https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on"> RGPD </a>
+            <a class="txt_footer" href="https://www.cnil.fr/fr/respecter-les-droits-des-personnes"> Gestion données </a>
+            <a class="txt_footer" href="https://support.google.com/chrome/answer/95617?hl=fr"> Sécurité web </a>
+        </div>
+    </footer>
+    <script src="{{asset('header-footer_script.js')}}"></script>
+</body>
+</html>
