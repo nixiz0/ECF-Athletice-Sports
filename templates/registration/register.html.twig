@@ -1,47 +1,27 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{#METTRE LA DESCRIPTION DU SITE POUR LE SEO#}"/>
-    <link rel="icon" href="{{asset('Ressources/icone_header.png')}}"> {# Icone à mettre pour la barre de navigation #}
-    <title> {% block title %} Athletice Sports Inscription {% endblock %} </title>
-    {% block stylesheets %}  {% endblock %}
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
-    <link rel="stylesheet" href="{{asset('home.css')}}">
-</head>
+{% extends 'header_footer.html.twig' %}
 
-<body>
-    <div class="flex_main">
-        <img class="main_img" src="{{ asset('Ressources/background_accueil.png')}}">
-        <form class="position_change">
-        <!-- Email input -->
-        {{ form_start(registrationForm) }}
-        <div class="form-outline mb-4 text_change">
-            {{ form_row(registrationForm.email) }}
-        </div>
+{% block title %}Register{% endblock %}
 
-        <!-- Password input -->
-        <div class="form-outline mb-4 text_change">
-            {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
-        </div>
+{% block body %}
+    <link rel="stylesheet" href="{{asset('register.css')}}">
 
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row mb-4">
-            <div class="text_change">
-            <!-- Checkbox -->
-            <div class="form-check text_change">
-                {{ form_row(registrationForm.agreeTerms, {label: 'Accepter les termes'}) }}
-                <!-- Submit button -->
-                <button style="color:white; background-color:black;" type="submit" class="btn">S'inscrire</button>
-            </div>
-            </div>
-        </div>
-    
-        <!-- Register buttons -->
-        {{ form_end(registrationForm) }}
-        </form>
-    </div>
-</body>
-</html>
+    <h1 class="text-center title_register">Inscription Utilisateur</h1>
+
+<div class="main_register">
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.firstname, {label:'Prénom'}) }}
+        {{ form_row(registrationForm.name, {label:'Nom'}) }}
+
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de Passe'
+        }) }}
+        {{ form_row(registrationForm.address, {label:'Adresse'}) }}
+        {{ form_row(registrationForm.city, {label:'Ville'}) }}
+
+        {{ form_row(registrationForm.agreeTerms, {label:'Accepter les conditions'}) }}
+
+        <button type="submit" class="btn btn-primary">Inscription</button>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}

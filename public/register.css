@@ -1,0 +1,24 @@
+/* Adaptation Telephone / Tablette */
+.title_register {
+    font-size: 28px;
+}
+
+.main_register {
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 18px;
+}
+
+/* Adaptation Ecran */
+@media (min-width:940px) {
+    .title_register {
+        font-size: 32px;
+    }
+    
+    .main_register {
+        margin-left: 2%;
+        margin-right: 2%;
+        font-size: 21px;
+    }
+    
+}

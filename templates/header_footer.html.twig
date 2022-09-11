@@ -31,8 +31,7 @@
                     <ul class="menuderoulant">
                         <li> <a href="#"> <img class="profil_utilisateur" src="{{asset('Ressources/utilisateur_profil_default.png')}}"> </a>
                             <ul class="sousmenu">
-                                <li> <span style="color:black;"> Bonjour ('name')</span></li>
-                                <li> <span style="color:black;"> (insérer le role)</span></li>
+                                {% block deconnexion %} <a href="{{ path('app_logout') }}"> Deconnexion </a> {% endblock %}
                             </ul>
                     </ul>
                 </div>

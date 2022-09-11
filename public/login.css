@@ -28,11 +28,18 @@ body {
     text-shadow: 3px 2px 2px black;
 }
 
+.font_login {
+    font-size: 15px;
+}
 
 /* Format Ecran */
 @media (min-width:750px) {
     .position_change {
         position:absolute;
         margin-top: 30%;
+    }
+
+    .font_login {
+        font-size: 19px;
     }
 }
