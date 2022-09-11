@@ -6,35 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{#METTRE LA DESCRIPTION DU SITE POUR LE SEO#}"/>
     <link rel="icon" href="{{asset('Ressources/icone_header.png')}}"> {# Icone à mettre pour la barre de navigation #}
-    <title> {% block title %} Athletice Sports Accueil {% endblock %} </title>
+    <title> {% block title %} Athletice Sports Connexion {% endblock %} </title>
     {% block stylesheets %}  {% endblock %}
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
-    <link rel="stylesheet" href="{{asset('home.css')}}">
+    <link rel="stylesheet" href="{{asset('login.css')}}">
 </head>
 
-<body>
+<body method="post">
     <div class="flex_main">
+
+        {# {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}"> Déconnexion </a>
+            </div>
+        {% endif %} #}
+        
         <img class="main_img" src="{{ asset('Ressources/background_accueil.png')}}">
         <form class="position_change">
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
         <!-- Email input -->
         <div class="form-outline mb-4 text_change">
-            <input type="email" id="form2Example1" class="form-control" />
-            <label class="form-label" for="form2Example1">Adresse e-mail</label>
+            <label class="form-label" for="inputEmail">Adresse e-mail</label>
+            <input class="form-control" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4 text_change">
-            <input type="password" id="form2Example2" class="form-control" />
-            <label class="form-label" for="form2Example2">Mot de Passe</label>
+            <label class="form-label" for="inputPassword">Mot de Passe</label>
+            <input class="form-control" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
         </div>
 
         <!-- 2 column grid layout for inline styling -->
         <div class="row mb-4">
             <div class="col d-flex justify-content-center text_change">
             <!-- Checkbox -->
-            <div class="form-check text_change">
-                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                <label class="form-check-label" for="form2Example31"> Se souvenir de moi </label>
+            <div class="form-check text_change checkbox mb-3">
+                <label> <input type="checkbox" name="_remember_me" checked/> Se souvenir de moi </label>
             </div>
             </div>
 
@@ -45,7 +56,8 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4 text_change">Connexion</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4 text_change">Connexion</button>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <!-- Register buttons -->
         <div class="text-center text_change">
