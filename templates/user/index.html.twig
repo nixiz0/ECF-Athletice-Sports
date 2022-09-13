@@ -12,20 +12,17 @@
             <tr>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
-                <th>Firstname</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>actions</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Ville</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.email}}</td>
+                <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.address }}</td>
@@ -43,6 +40,9 @@
         </tbody>
     </table>
     <div class="text-center">
-        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register') }}"> Créer </a>
+        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register_admin') }}"> Créer un administrateur </a>
+        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register_franchise') }}"> Créer une franchise </a>
+        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register_structure') }}"> Créer une structure </a>
+
     </div>
 {% endblock %}

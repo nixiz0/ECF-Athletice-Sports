@@ -31,7 +31,12 @@
                     <ul class="menuderoulant">
                         <li> <a href="#"> <img class="profil_utilisateur" src="{{asset('Ressources/utilisateur_profil_default.png')}}"> </a>
                             <ul class="sousmenu">
-                                {% block deconnexion %} <a href="{{ path('app_logout') }}"> Deconnexion </a> {% endblock %}
+                                {% if app.user %}
+                                    <a href="{{ path('app_logout') }}"> Deconnexion </a>
+
+                                {% else %} 
+                                    <a href="{{path('app_login')}}" style="color:black;"> Erreur : Connectez-vous </a>
+                                {% endif %}
                             </ul>
                     </ul>
                 </div>
@@ -42,13 +47,28 @@
     <div class="header2">
         <div class="list_pages">
             <div class="sous_nav">
-            {% block nav %}
-                <a class="txt_nav" href="{{ path('app_user_index')}}"> Utilisateurs </a>
-                <a class="txt_nav" href="{{ path('app_dashboard')}}"> Dashboard </a>
-                <a class="txt_nav" href="#"> Franchises </a>
-                <a class="txt_nav" href="#"> Structures </a>
-                <a class="txt_nav" href="#"> Options </a>
-            {% endblock %}
+                {% if app.user %}
+                    <a class="txt_nav" href="{{ path('app_dashboard')}}"> Dashboard </a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="txt_nav" href="{{ path('app_user_index')}}"> Utilisateurs </a>     
+                    <a class="txt_nav" href="#"> Franchises </a>
+                    <a class="txt_nav" href="#"> Structures </a>
+                    <a class="txt_nav" href="#"> Options </a>
+                {% endif %}
+
+                {% if is_granted('ROLE_FRANCHISE') %}
+                    <a class="txt_nav" href="#"> Franchises </a>
+                    <a class="txt_nav" href="#"> Structures </a>
+                    <a class="txt_nav" href="#"> Options </a>
+                {% endif %}
+
+                
+                {% if is_granted('ROLE_STRUCTURE') %}
+                    <a class="txt_nav" href="#"> Structures </a>
+                    <a class="txt_nav" href="#"> Options </a>
+                {% endif %}
+
             </div>
         </div>
     </div>

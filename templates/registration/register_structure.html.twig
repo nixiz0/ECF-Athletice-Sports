@@ -1,0 +1,27 @@
+{% extends 'header_footer.html.twig' %}
+
+{% block title %} Athletice Inscription {% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{asset('register.css')}}">
+
+    <h1 class="text-center title_register">Inscription Utilisateur</h1>
+
+<div class="main_register">
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.firstname, {label:'Prénom'}) }}
+        {{ form_row(registrationForm.name, {label:'Nom'}) }}
+
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de Passe'
+        }) }}
+        {{ form_row(registrationForm.address, {label:'Adresse'}) }}
+        {{ form_row(registrationForm.city, {label:'Ville'}) }}
+
+        {{ form_row(registrationForm.agreeTerms, {label:'Accepter les conditions'}) }}
+
+        <button type="submit" class="btn btn-primary">Inscription</button>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}
