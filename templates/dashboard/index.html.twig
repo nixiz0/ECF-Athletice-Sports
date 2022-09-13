@@ -3,7 +3,46 @@
 {% block title %} Athletice Accueil {% endblock %}
     
 {% block body %}
+    <link rel="stylesheet" href="{{asset('dashboard.css')}}">
+
+    <div class="text-center title_dash">
+        <h2> Bienvenue chez Athletice ! </h2>
+    </div>
+
     <div class="text-center">
-        <h2> Bienvenue sur l'accueil de votre pannel de gestion ! </h2>
+        <img class="img_dash_main" src="{{ asset('Ressources/icone_header.png')}}">
+    </div>
+
+    <div class="txt_dash txt_main_dash">
+        <h3 style="text-decoration: underline;"> Présentation </h3>
+        <p> Athletice est une entreprise de salle de sport et plus précisément de musculation. Nous possédons de multiples structures partout
+            en France. Nous mettons un point d'honneur sur la collaboration et le travail d'équipe, c'est pour cela que nous comptons parmis
+            nos membres beaucoup de franchisés.
+        </p>
+    </div>
+    <div class="txt_dash txt_main_dash">
+        <h3 style="text-decoration: underline;"> Nos Activités </h3>
+        <p> Nous vous proposons des séances de coatching à distance. Vous pouvez aussi obtenir des conseil de nos nutritionnistes 
+            en ligne. Nous donnons aussi des lives débattant sur le sport et ces bienfaits.
+            Sans oubliez que vous pouvez retrouver nos meilleurs coatch et préparateur sportif dans nos nombreuses salles de sport en France.
+        </p>
+    </div>
+
+    <div class="text-center" style="margin-top: 5%;">
+        <img class="img_dash" src="{{ asset('Ressources/Endurance.png')}}">
+        <img class="img_dash" src="{{ asset('Ressources/musculation.png')}}">
+        <img class="img_dash" src="{{ asset('Ressources/Performance.png')}}">
+    </div>
+
+    <div class="seperation"> </div>
+
+    <div class="text-center txt_3D">
+        <h3> Nos Vêtements </h3>
+    </div>
+
+    <div class="main_3D">
+        <iframe class="img_3D" src='https://my.spline.design/tshirtbodyfemalecopy-0b648ad45179c325c2a7b505ec03a860/' frameborder='0'></iframe>
+        <iframe class="img_3D" src='https://my.spline.design/hoodiecopy-254333760cdf13c139cd6fbccde15a04/' frameborder='0' ></iframe>
+        <iframe class="img_3D" src='https://my.spline.design/tshirtbodymalecopy-bb131789202510b1e81fcbd7afb3dd72/' frameborder='0'></iframe>
     </div>
 {% endblock %}
