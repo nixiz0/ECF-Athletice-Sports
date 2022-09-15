@@ -5,7 +5,7 @@
 {% block body %}
     <link rel="stylesheet" href="{{asset('user.css')}}">
 
-    <h1 class="text-center"> Nos utilisateurs </h1>
+    <h1 class="text-center" style="text-decoration: underline;"> Nos utilisateurs </h1>
 
     <table class="table text-center font-size-user" style="padding:1.5%;">
         <thead>
@@ -22,7 +22,15 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                {% if user.roles == ["ROLE_ADMIN"] %}
+                    <td style="color:red;">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                {% endif %}
+                {% if user.roles == ["ROLE_FRANCHISE"] %}
+                    <td style="color:blue;">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                {% endif %}
+                {% if user.roles == ["ROLE_STRUCTURE"] %}
+                    <td style="color:green;">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                {% endif %}
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.address }}</td>

@@ -52,13 +52,13 @@
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <a class="txt_nav" href="{{ path('app_user_index')}}"> Utilisateurs </a>     
-                    <a class="txt_nav" href="#"> Franchises </a>
+                    <a class="txt_nav" href="{{ path('app_franchise_main_index')}}"> Franchises </a>
                     <a class="txt_nav" href="#"> Structures </a>
-                    <a class="txt_nav" href="#"> Options </a>
+                    <a class="txt_nav" href="#"> Options </a> 
                 {% endif %}
 
                 {% if is_granted('ROLE_FRANCHISE') %}
-                    <a class="txt_nav" href="#"> Franchises </a>
+                    <a class="txt_nav" href="{{ path('app_franchise_main_index')}}"> Franchise </a>
                     <a class="txt_nav" href="#"> Structures </a>
                     <a class="txt_nav" href="#"> Options </a>
                 {% endif %}

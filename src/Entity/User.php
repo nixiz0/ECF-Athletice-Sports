@@ -41,6 +41,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $city = null;
 
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?FranchiseMain $FranchiseMains = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -156,6 +159,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCity(string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getFranchiseMains(): ?FranchiseMain
+    {
+        return $this->FranchiseMains;
+    }
+
+    public function setFranchiseMains(?FranchiseMain $FranchiseMains): self
+    {
+        $this->FranchiseMains = $FranchiseMains;
 
         return $this;
     }

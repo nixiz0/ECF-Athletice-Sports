@@ -1,0 +1,77 @@
+{% extends 'header_footer.html.twig' %}
+
+{% block title %} Athletice Franchise {% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{asset('franchise.css')}}">
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1 class="text-center franchise_title"> Nos Franchises </h1>
+    {% else %}
+        <h1 class="text-center franchise_title"> Bienvenue dans votre Franchise </h1>
+    {% endif %}
+
+{% if is_granted('ROLE_ADMIN') %}
+    {% for franchise in franchises %}
+        <table class="table table-bordered table-dark text-center font_size_admin">
+            <thead>
+                <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actif</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> {{franchise.user.name}} </td>
+                    <td> {{franchise.user.firstname}} </td>
+                    <td> {{franchise.user.email}} </td>
+                    <td> 
+                        {% if franchise.isactive == false %} 
+                                <a class="btn btn-danger" style="text-decoration: none; color:white;" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Désactivé </a> 
+                        {% else %}
+                                <a class="btn btn-success" style="text-decoration: none; color:white;" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Activé </a> 
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+{% endif %}
+
+{% if is_granted('ROLE_FRANCHISE') %}
+    <div class="text-center font_franchise_index">
+        <span style="font-style: bold;"> {{app.user.name}}</span>
+        <span style="font-style: bold;"> {{app.user.firstname}}</span>
+    </div>
+    <div class="text-center font_franchise_index">
+        <span> {{app.user.email}}</span>
+    </div>
+
+    <div class="main_pub_franchise">
+        <img class="text-center img_main_pub" src="{{ asset('Ressources/new.png') }}">
+        <h4 class="pub_title"> Voici nos nouvelles boissons aromatisées ! </h4>
+            <span class="txt_pub">Prenez les options de boissons pour les faire goûter à vos clients ! Saveurs revisitées, rafraichissantes et très protéinés, idéales 
+                pour le sport.
+            </span>
+
+        <div class="text-center">
+            <img class="img_boisson" src="{{ asset('Ressources/boisson1.png') }}">
+            <img class="img_boisson" src="{{ asset('Ressources/boisson2.png') }}">
+        </div>
+    </div>
+
+    <div class="main_pub_franchise">
+        <h4 class="pub_title"> Voici nos nouvelles barres de céréales ! </h4>
+            <span class="txt_pub"> Barres de céréales onctueuses et savoureuses remplies de protéines ! </span>
+            <p style="font-style: italic;" class="txt_pub"> Obtenez une réduction de 50% si vous commandez nos barres. </p>
+
+        <div class="text-center">
+            <img class="img_boisson_cereales" src="{{ asset('Ressources/cereal_bar.png') }}">
+        </div>
+    </div>
+
+{% endif %}
+
+{% endblock %}

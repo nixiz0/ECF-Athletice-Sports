@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\FranchiseMain;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthentificatorAuthenticator;
@@ -55,6 +56,9 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $franchise = new FranchiseMain();
+            $franchise->setIsActive(0);
+            $user->setFranchiseMains($franchise);
             // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
@@ -63,6 +67,7 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setRoles(['ROLE_FRANCHISE']);
+            $entityManager->persist($franchise);
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email

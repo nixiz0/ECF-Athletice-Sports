@@ -1,0 +1,20 @@
+{% extends 'header_footer.html.twig' %}
+
+{% block title %} Athletice Franchise Activation {% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{asset('franchise.css')}}">
+
+    <h1 class="text-center"> Activation de Franchise </h1>
+
+<div class="edit_franchises_main">
+    <div class="flex_edit">
+        {{ include('franchise_main/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+    
+    <button type="button" class="btn btn-dark">
+        <a style="text-decoration: none; color:white;" href="{{ path('app_franchise_main_index') }}"> précédent </a>
+    </button>
+</div>
+
+{% endblock %}

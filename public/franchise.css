@@ -1,0 +1,98 @@
+.franchise_title {
+    font-size: 28px;
+    text-decoration: underline;
+    margin-bottom: 3%;
+}
+
+.font_size_admin {
+    font-size: 17px;
+}
+
+.font_franchise_index {
+    font-size: 20px;
+}
+
+.main_pub_franchise {
+    margin-top: 4%;
+    text-align: center;
+}
+
+.img_main_pub {
+    width: auto;
+    height: 200px;
+}
+
+.img_boisson {
+    width: auto;
+    height: 200px;
+}
+
+.img_boisson_cereales {
+    width: auto;
+    height: 200px;
+}
+
+.pub_title {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.txt_pub {
+    font-size: 17px;
+}
+
+/* CSS pour le template edit */
+.edit_franchises_main {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.flex_edit {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:750px) {
+
+    .font_size_admin {
+        font-size: 22px;
+    }
+
+    .font_franchise_index {
+        font-size: 27px;
+    }
+
+    .franchise_title {
+        font-size: 33px;
+    }
+
+    .img_main_pub {
+        width: auto;
+        height: 500px;
+    }
+
+    .img_boisson {
+        width: auto;
+        height: 480px;
+    }
+
+    .img_boisson_cereales {
+        width: auto;
+        height: 450px;
+    }
+
+    .pub_title {
+        font-size: 29px;
+    }
+
+    .txt_pub {
+        font-size: 22px;
+    }
+    
+
+/* CSS pour le template edit */
+    .edit_franchises_main {
+        font-size: 22px;
+    }
+}
