@@ -44,6 +44,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
     private ?FranchiseMain $FranchiseMains = null;
 
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?StructureMain $StructureMains = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +174,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setFranchiseMains(?FranchiseMain $FranchiseMains): self
     {
         $this->FranchiseMains = $FranchiseMains;
+
+        return $this;
+    }
+
+    public function getStructureMains(): ?StructureMain
+    {
+        return $this->StructureMains;
+    }
+
+    public function setStructureMains(?StructureMain $StructureMains): self
+    {
+        $this->StructureMains = $StructureMains;
 
         return $this;
     }

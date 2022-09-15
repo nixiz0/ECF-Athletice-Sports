@@ -1,0 +1,87 @@
+.font_structure_data {
+    font-size: 21px;
+    font-style: bold;
+}
+
+.font_title_structure {
+    font-size: 28px;
+    text-decoration: underline;
+}
+
+.font_structure {
+    font-size: 17px;
+}
+
+/* CSS pour template role structure */
+.title_pub {
+    font-size: 20px;
+}
+
+.txt_pub {
+    font-size: 18px;
+}
+
+.main_img_pub {
+    width: auto;
+    height: 200px;
+    margin-top: 2%;
+}
+
+.img_pub {
+    width: auto;
+    height: 200px;
+    margin-top: 2%;
+}
+
+/* CSS pour le template edit */
+.edit_franchises_main {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 19px;
+}
+
+.flex_edit {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width:750px) {
+    .font_structure_data {
+        font-size: 25px;
+    }
+    
+    .font_title_structure {
+        font-size: 32px;
+    }
+    
+    .font_structure {
+        font-size: 22px;
+    }
+
+/* CSS pour template role structure */
+.title_pub {
+    font-size: 25px;
+}
+
+.txt_pub {
+    font-size: 22px;
+}
+
+.main_img_pub {
+    width: auto;
+    height: 450px;
+    margin-top: 2%;
+}
+
+.img_pub {
+    width: auto;
+    height: 320px;
+}
+
+/* CSS pour le template edit */
+    .edit_franchises_main {
+        font-size: 23px;
+    }
+
+}

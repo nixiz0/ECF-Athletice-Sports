@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\FranchiseMain;
+use App\Entity\StructureMain;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthentificatorAuthenticator;
@@ -57,7 +58,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $franchise = new FranchiseMain();
-            $franchise->setIsActive(0);
+            $franchise->setIsActive(1);
             $user->setFranchiseMains($franchise);
             // encode the plain password
             $user->setPassword(
@@ -92,6 +93,9 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $structure = new StructureMain();
+            $structure->setIsActive(1);
+            $user->setStructureMains($structure);
             // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
@@ -100,6 +104,7 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setRoles(['ROLE_STRUCTURE']);
+            $entityManager->persist($structure);
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email

@@ -1,0 +1,19 @@
+{% extends 'header_footer.html.twig' %}
+
+{% block title %} Athletice Structure Activation {% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{asset('structure.css')}}">
+
+    <h1 class="text-center"> Activation de Structure </h1>
+
+    <div class="edit_franchises_main">
+        <div class="flex_edit">
+            {{ include('structure_main/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        
+        <button type="button" class="btn btn-dark">
+            <a style="text-decoration: none; color:white;" href="{{ path('app_structure_main_index') }}"> précédent </a>
+        </button>
+    </div>
+{% endblock %}
