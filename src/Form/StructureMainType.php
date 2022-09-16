@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Option;
 use App\Entity\StructureMain;
+use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +23,30 @@ class StructureMainType extends AbstractType
                 'class' => 'form-check-input',
             ],
         ])
-            //->add('user')
+
+        ->add('options', EntityType::class, [
+            'class' => Option::class,
+            'label' => 'Les Options de la structure',
+            'label_attr' => [
+                'class' => 'form-label mt-4'
+            ],
+            'choice_label' => 'NameOption',
+            'multiple' => true,
+            'expanded' => true,
+        ])
+        ->add('user', EntityType::class, [
+            'required' => false,
+            'class' => User::class,
+            'choice_label'=>function($email){
+            return $email->getEmail();
+        },
+        'label' => 'Merci de confirmer l\'adresse mail de votre structure. ',
+            'attr' => [
+                'class' => 'form-control '
+            ],
+            'placeholder'=>'Choisissez votre email dans la liste',
+
+        ])
         ;
     }
 

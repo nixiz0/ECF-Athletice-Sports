@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StructureMainRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: StructureMainRepository::class)]
@@ -18,6 +20,14 @@ class StructureMain
 
     #[ORM\OneToOne(mappedBy: 'StructureMains', cascade: ['persist', 'remove'])]
     private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'structureMains')]
+    private Collection $Options;
+
+    public function __construct()
+    {
+        $this->Options = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -57,4 +67,29 @@ class StructureMain
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Option>
+     */
+    public function getOptions(): Collection
+    {
+        return $this->Options;
+    }
+
+    public function addOption(Option $option): self
+    {
+        if (!$this->Options->contains($option)) {
+            $this->Options->add($option);
+        }
+
+        return $this;
+    }
+
+    public function removeOption(Option $option): self
+    {
+        $this->Options->removeElement($option);
+
+        return $this;
+    }
+
 }

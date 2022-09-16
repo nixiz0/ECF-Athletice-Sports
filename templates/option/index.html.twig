@@ -1,0 +1,39 @@
+{% extends 'header_footer.html.twig' %}
+
+{% block title %} Athletice Options {% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{asset('option.css')}}">
+
+    <div class="text-center title_option">
+        <h1> Les Options Marketing proposés </h1>
+    </div>
+
+    <table class="table table-dark font_main_option">
+        <thead>
+            <tr>
+                <th scope="col">Nom des Options</th>
+                <th scope="col"> Activé</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for option in options %}
+            <tr class="text-center">
+                <td>{{ option.NameOption }}</td>
+                <td>{{ option.IsActive ? 'Oui' : 'Non' }}</td>
+
+                <td>
+                    {# A mettre : un bouton qui permettra d'éditer#}
+                    <a href="{{ path('app_option_edit', {'id': option.id}) }}"> <button class="btn btn-success"> Modifier </button> </a> 
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a href="{{ path('app_option_new') }}"> <button class="btn btn-primary font_add_option"> Ajouter </button> </a>
+    </div>
+
+{% endblock %}

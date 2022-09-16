@@ -19,6 +19,7 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
                 <th scope="col">Email</th>
+                <th scope="col">Adresse</th>
                 <th scope="col">Actif</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td> {{franchise.user.name}} </td>
                     <td> {{franchise.user.firstname}} </td>
                     <td> {{franchise.user.email}} </td>
+                    <td> {{franchise.user.city}}</td>
                     <td> 
                         {% if franchise.isactive == false %} 
                                 <a class="btn btn-danger" style="text-decoration: none; color:white;" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Désactivé </a> 

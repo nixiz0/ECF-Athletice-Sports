@@ -1,0 +1,44 @@
+/* Option */
+.title_option {
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.font_main_option {
+    font-size: 18px;
+}
+
+.font_add_option {
+    font-size: 17px;
+}
+
+/* Option Edit & New*/
+.edit_main_option {
+    margin-top: 2%;
+}
+
+.flex_option_edit {
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+}
+
+@media (min-width:940px) {
+    /* Option */
+    .title_option {
+        font-size: 22px;
+    }
+
+    .font_main_option {
+        font-size: 21px;
+    }
+
+    .font_add_option {
+        font-size: 20px;
+    }
+
+    /* Option Edit & New */
+    .flex_option_edit {
+        font-size: 23px;
+    }
+}

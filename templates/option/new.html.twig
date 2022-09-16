@@ -1,0 +1,18 @@
+{% extends 'header_footer.html.twig' %}
+
+{% block title %} Athletice Nouvel Option {% endblock %}
+
+
+{% block body %}
+    <link rel="stylesheet" href="{{asset('option.css')}}">
+
+    <h1 class="text-center"> Créer une nouvelle option </h1>
+
+    <div class="edit_main_option text-center">
+        <div class="flex_option_edit">
+            {{ include('option/_form.html.twig') }}
+        </div>
+            <a class="btn btn-dark" href="{{ path('app_option_index') }}"> Précédent </a>
+    </div>
+    
+{% endblock %}

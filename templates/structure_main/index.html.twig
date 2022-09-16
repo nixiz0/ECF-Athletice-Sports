@@ -3,7 +3,7 @@
 {% block title %} Athletice Structure {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{ asset('structures.css') }}">
+    <link rel="stylesheet" href="{{ asset('structure.css') }}">
 
     {% if is_granted('ROLE_ADMIN') %}
         <h1 class="text-center font_title_structure"> Nos Structures </h1>
@@ -23,10 +23,13 @@
         <table class="table table-bordered table-dark text-center font_structure">
             <thead>
                 <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Email</th>
-                <th scope="col">Actif</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Options Actif</th>
+                    <th scope="col">Modifer Option</th>
+                    <th scope="col">Actif</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +37,15 @@
                     <td> {{structure.user.name}} </td>
                     <td> {{structure.user.firstname}} </td>
                     <td> {{structure.user.email}} </td>
+                    <td> {{structure.user.address}} à {{structure.user.city}}</td>
+                    <td>
+                        {% for option in structure.options %}
+                            {% if option.isactive == true %}
+                                {{option.NameOption}} | 
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td> <a class="btn btn-light" href="{{ path('app_structure_main_edit', {id: structure.id} )}} "> modifier </a> </td>
                     <td> 
                         {% if structure.isactive == false %} 
                                 <a class="btn btn-danger" style="text-decoration: none; color:white;" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Désactivé </a> 

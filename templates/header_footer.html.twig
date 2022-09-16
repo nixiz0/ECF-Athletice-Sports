@@ -54,18 +54,16 @@
                     <a class="txt_nav" href="{{ path('app_user_index')}}"> Utilisateurs </a>     
                     <a class="txt_nav" href="{{ path('app_franchise_main_index')}}"> Franchises </a>
                     <a class="txt_nav" href="{{ path('app_structure_main_index')}}"> Structures </a>
-                    <a class="txt_nav" href="#"> Options </a> 
+                    <a class="txt_nav" href="{{ path('app_option_index')}}"> Options </a> 
                 {% endif %} 
 
                 {% if is_granted('ROLE_FRANCHISE') %}
                     <a class="txt_nav" href="{{ path('app_franchise_main_index')}}"> Franchise </a>
                     <a class="txt_nav" href="{{ path('app_structure_main_index')}}"> Structures </a>
-                    <a class="txt_nav" href="#"> Options </a>
                 {% endif %}
 
                 {% if is_granted('ROLE_STRUCTURE') %}
-                    <a class="txt_nav" href="{{ path('app_structure_main_index')}}"> Structures </a>
-                    <a class="txt_nav" href="#"> Options </a>
+                    <a class="txt_nav" href="{{ path('app_structure_main_index')}}"> Structure </a>
                 {% endif %}
 
             </div>
