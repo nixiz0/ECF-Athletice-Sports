@@ -1,0 +1,161 @@
+.font_structure_data {
+    font-size: 21px;
+    font-style: bold;
+}
+
+.font_title_structure {
+    font-size: 28px;
+    text-decoration: underline;
+}
+
+.font_structure {
+    font-size: 12px;
+}
+
+.franchise_email {
+    font-size: 9px;
+    display: flex;
+    justify-content: center;
+    color:white;
+    background-color: #212529;
+}
+
+.font_button_active {
+    font-size: 10px;
+    text-decoration: none;
+    color:white;
+    margin-left: 1%;
+    padding: 0.5%;
+}
+
+.edit_structure {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #212529;
+    color:white;
+    padding: 1%;    
+    font-size: 20px
+}
+
+/* CSS pour template role structure */
+.title_pub {
+    font-size: 20px;
+}
+
+.txt_pub {
+    font-size: 18px;
+}
+
+.main_img_pub {
+    width: auto;
+    height: 180px;
+    margin-top: 2%;
+}
+
+.img_pub {
+    width: auto;
+    height: 180px;
+    margin-top: 2%;
+}
+
+/* CSS pour template role franchise */
+    .font_title_franchise {
+        font-size: 18px;
+        background-color:#212529;
+        color:white;
+        padding:0.7%;
+    }
+    
+    .franchise_structure {
+        font-size: 18px;
+
+    }
+/* CSS pour le template edit */
+.title_edit_structure {
+    font-size: 21px;
+}
+
+.edit_structure_main {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 19px;
+}
+
+.flex_edit {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width:750px) {
+    .font_structure_data {
+        font-size: 25px;
+    }
+    
+    .font_title_structure {
+        font-size: 32px;
+    }
+    
+    .font_structure {
+        font-size: 22px;
+    }
+
+    .franchise_email {
+        font-size: 15px;
+    }
+
+    .font_button_active {
+        font-size: 16px;
+    }
+
+    .edit_structure {
+        display: flex;
+        justify-content: center;
+        background-color: #212529;
+        color:white;
+        padding: 1%;    
+        font-size: 25px
+    }
+
+    /* CSS pour le template edit */
+    .title_edit_structure {
+        font-size: 31px;
+    }
+
+    .edit_structure_main {
+        font-size: 23px;
+    }
+
+
+/* CSS pour template role franchise */
+.font_title_franchise {
+    font-size: 24px;
+}
+
+.franchise_structure {
+    font-size: 24px;
+}
+
+/* CSS pour template role structure */
+.title_pub {
+    font-size: 25px;
+}
+
+.txt_pub {
+    font-size: 22px;
+}
+
+.main_img_pub {
+    width: auto;
+    height: 430px;
+    margin-top: 2%;
+}
+
+.img_pub {
+    width: auto;
+    height: 320px;
+}
+
+
+
+}

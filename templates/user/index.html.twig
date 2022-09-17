@@ -3,10 +3,11 @@
 {% block title %} Athletice Utilisateurs {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{asset('user.css')}}">
+    <link rel="stylesheet" href="{{asset('users.css')}}">
 
-    <h1 class="text-center" style="text-decoration: underline;"> Nos utilisateurs </h1>
+    <h1 class="text-center font_title" style="text-decoration: underline;"> Nos utilisateurs </h1>
 
+<div class="responsive_desktop">
     <table class="table text-center font-size-user" style="padding:1.5%;">
         <thead>
             <tr>
@@ -36,8 +37,8 @@
                 <td>{{ user.address }}</td>
                 <td>{{ user.city }}</td>
                 <td class="adapting-button">
-                    <a class="btn btn-info" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
-                    <a class="btn btn-success" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+                    <a class="btn btn-info button_size" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+                    <a class="btn btn-success button_size" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -48,9 +49,53 @@
         </tbody>
     </table>
     <div class="text-center">
-        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register_admin') }}"> Créer un administrateur </a>
-        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register_franchise') }}"> Créer une franchise </a>
-        <a class="btn btn-primary" style="margin:0.5%; font-size:20px;" href="{{ path('app_register_structure') }}"> Créer une structure </a>
+        <a class="btn btn-primary font_button" href="{{ path('app_register_admin') }}"> Créer un administrateur </a>
+        <a class="btn btn-primary font_button" href="{{ path('app_register_franchise') }}"> Créer une franchise </a>
+        <a class="btn btn-primary font_button" href="{{ path('app_register_structure') }}"> Créer une structure </a>
 
     </div>
+</div>
+
+<div class="responsive_tel">
+    <table class="table text-center font-size-user" style="padding:1.5%;">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.email }}</td>
+                {% if user.roles == ["ROLE_ADMIN"] %}
+                    <td style="color:red;">{{ user.roles ? user.roles|json_encode : '' }}
+                        <a class="btn btn-info button_size" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+                    </td>
+                {% endif %}
+                {% if user.roles == ["ROLE_FRANCHISE"] %}
+                    <td style="color:blue;">{{ user.roles ? user.roles|json_encode : '' }}
+                        <a class="btn btn-info button_size" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+                    </td>
+                {% endif %}
+                {% if user.roles == ["ROLE_STRUCTURE"] %}
+                    <td style="color:green;">{{ user.roles ? user.roles|json_encode : '' }}
+                        <a class="btn btn-info button_size" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+                    </td>
+                {% endif %}
+                <td> </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-primary font_button" href="{{ path('app_register_admin') }}"> Créer un administrateur </a>
+        <a class="btn btn-primary font_button" href="{{ path('app_register_franchise') }}"> Créer une franchise </a>
+        <a class="btn btn-primary font_button" href="{{ path('app_register_structure') }}"> Créer une structure </a>
+    </div>
+</div>
 {% endblock %}

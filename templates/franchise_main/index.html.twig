@@ -3,7 +3,7 @@
 {% block title %} Athletice Franchise {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{asset('franchise.css')}}">
+    <link rel="stylesheet" href="{{asset('franchises.css')}}">
 
     {% if is_granted('ROLE_ADMIN') %}
         <h1 class="text-center franchise_title"> Nos Franchises </h1>
@@ -31,9 +31,9 @@
                     <td> {{franchise.user.city}}</td>
                     <td> 
                         {% if franchise.isactive == false %} 
-                                <a class="btn btn-danger" style="text-decoration: none; color:white;" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Désactivé </a> 
+                                <a class="btn btn-danger button_font" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Désactivé </a> 
                         {% else %}
-                                <a class="btn btn-success" style="text-decoration: none; color:white;" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Activé </a> 
+                                <a class="btn btn-success button_font" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Activé </a> 
                         {% endif %}
                     </td>
                 </tr>

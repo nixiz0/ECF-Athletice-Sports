@@ -1,15 +1,21 @@
 .franchise_title {
-    font-size: 28px;
+    font-size: 25px;
     text-decoration: underline;
     margin-bottom: 3%;
 }
 
 .font_size_admin {
-    font-size: 17px;
+    font-size: 12px;
+}
+
+.button_font {
+    font-size: 10px;
+    text-decoration: none;
+    color:white;
 }
 
 .font_franchise_index {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .main_pub_franchise {
@@ -42,6 +48,10 @@
 }
 
 /* CSS pour le template edit */
+.font_edit_title {
+    font-size: 21px;
+}
+
 .edit_franchises_main {
     margin-top: 2%;
     text-align: center;
@@ -53,10 +63,13 @@
     justify-content: center;
 }
 
-@media (min-width:750px) {
-
+@media (min-width:750px) { 
     .font_size_admin {
         font-size: 22px;
+    }
+
+    .button_font {
+        font-size: 20px;
     }
 
     .font_franchise_index {
@@ -92,6 +105,10 @@
     
 
 /* CSS pour le template edit */
+    .font_edit_title {
+        font-size: 28px;
+    }
+
     .edit_franchises_main {
         font-size: 22px;
     }

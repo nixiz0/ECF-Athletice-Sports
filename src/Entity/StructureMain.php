@@ -24,6 +24,9 @@ class StructureMain
     #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'structureMains')]
     private Collection $Options;
 
+    #[ORM\ManyToOne(inversedBy: 'StructureMains')]
+    private ?FranchiseMain $franchiseMain = null;
+
     public function __construct()
     {
         $this->Options = new ArrayCollection();
@@ -88,6 +91,18 @@ class StructureMain
     public function removeOption(Option $option): self
     {
         $this->Options->removeElement($option);
+
+        return $this;
+    }
+
+    public function getFranchiseMain(): ?FranchiseMain
+    {
+        return $this->franchiseMain;
+    }
+
+    public function setFranchiseMain(?FranchiseMain $franchiseMain): self
+    {
+        $this->franchiseMain = $franchiseMain;
 
         return $this;
     }

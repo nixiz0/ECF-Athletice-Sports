@@ -3,12 +3,12 @@
 {% block title %} Utilisateur {{user.firstname}} {{user.name}} {% endblock %}
 
 {% block body %}
-<link rel="stylesheet" href="{{asset('user.css')}}">
+<link rel="stylesheet" href="{{asset('users.css')}}">
 
-<div class="text-center font-size-title-user ">
-    <h1> Utilisateur {{user.firstname}} {{user.name}} </h1>
+<div class="text-center ">
+    <h1 class="title_font_show"> Utilisateur {{user.firstname}} {{user.name}} </h1>
 </div>
-    <table class="table font-size-user" style="display:flex; justify-content: center;">
+    <table class="table font_size_user_show main_content_show">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -45,9 +45,9 @@
         </tbody>
     </table>
     <div class="text-center">
-        <a class="btn btn-dark" href="{{ path('app_user_index') }}">Précédent</a>
+        <a class="btn btn-dark button_show" href="{{ path('app_user_index') }}">Précédent</a>
 
-        <a class="btn btn-success" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+        <a class="btn btn-success button_show" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
     </div>
     <div class="text-center" style="margin-top:0.3%;">
         {{ include('user/_delete_form.html.twig') }}

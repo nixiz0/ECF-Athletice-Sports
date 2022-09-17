@@ -1,0 +1,98 @@
+html {
+    overflow-x:hidden;
+}
+
+/* Adapter pour Telephone / Tablette */
+
+.responsive_tel {
+    display: contents;
+}
+
+.responsive_desktop {
+    display: none;
+}
+
+.font_title {
+    font-size: 20px;
+}
+
+.font-size-title-user {
+    font-size: 17px;
+}
+
+.font-size-user {
+    font-size: 15px;
+}
+
+.button_size {
+    font-size: 11px;
+}
+
+.font_button {
+    font-size: 15px;
+    margin:0.2%;
+}
+
+/* User show */
+.title_font_show {
+    font-size: 23px;
+}
+
+.font_size_user_show {
+    font-size: 15px;
+}
+
+.button_show {
+    font-size: 16px;
+}
+
+
+@media (min-width:940px) {
+    /* Adapter pour Ecran */
+    .responsive_desktop {
+        display: contents;
+    }
+
+    .responsive_tel {
+        display: none;
+    }
+
+    .font_title {
+        font-size: 32px;
+    }
+
+    .font-size-title-user {
+        font-size: 20px;
+    }
+
+    .font-size-user {
+        font-size: 20px;
+    }
+
+    .button_size {
+        font-size: 17px;
+    }
+
+    .font_button {
+        font-size: 20px;
+        margin:0.5%;
+    }
+
+    /* User show */
+    .title_font_show {
+        font-size: 29px;
+    }
+
+    .font_size_user_show {
+        font-size: 21px;
+    }
+    
+    .main_content_show {
+        display:flex;
+        justify-content: center;
+    }
+
+    .button_show {
+        font-size: 18px;
+    }
+}

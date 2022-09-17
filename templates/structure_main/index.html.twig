@@ -3,7 +3,7 @@
 {% block title %} Athletice Structure {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{ asset('structure.css') }}">
+    <link rel="stylesheet" href="{{ asset('structures.css') }}">
 
     {% if is_granted('ROLE_ADMIN') %}
         <h1 class="text-center font_title_structure"> Nos Structures </h1>
@@ -20,6 +20,11 @@
 
 {% if is_granted('ROLE_ADMIN') %}
     {% for structure in structures %}
+    <div style="margin-top: 3%;">
+        <div class="text-center franchise_email">
+            <h2> Le Franchisé : {{structure.franchisemain}} </h2>
+        </div>
+
         <table class="table table-bordered table-dark text-center font_structure">
             <thead>
                 <tr>
@@ -28,8 +33,6 @@
                     <th scope="col">Email</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Options Actif</th>
-                    <th scope="col">Modifer Option</th>
-                    <th scope="col">Actif</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,22 +48,52 @@
                             {% endif %}
                         {% endfor %}
                     </td>
-                    <td> <a class="btn btn-light" href="{{ path('app_structure_main_edit', {id: structure.id} )}} "> modifier </a> </td>
-                    <td> 
-                        {% if structure.isactive == false %} 
-                                <a class="btn btn-danger" style="text-decoration: none; color:white;" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Désactivé </a> 
-                        {% else %}
-                                <a class="btn btn-success" style="text-decoration: none; color:white;" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Activé </a> 
-                        {% endif %}
-                    </td>
                 </tr>
             </tbody>
         </table>
+
+        <div class="edit_structure">
+            <span> Options de structure</span>
+            {% if structure.isactive == false %} 
+                    <a class="btn btn-danger font_button_active" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Désactivé </a> 
+            {% else %}
+                    <a class="btn btn-success font_button_active" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Activé </a> 
+            {% endif %}
+        </div>
+    </div>
     {% endfor %}
 {% endif %}
 
 {% if is_granted('ROLE_FRANCHISE') %}
+    <div class="text-center font_title_franchise">
+        <span> {{app.user.name}}</span>
+        <span> {{app.user.firstname}}</span>
+    </div>
 
+    {% for structure in structures %}
+        <table class="table table-bordered table-dark text-center franchise_structure">
+            <thead>
+                <tr>
+                    <th style="color:#56b0ff;" scope="col">Email de votre structure </th>
+                    <th style="color:#bc0000;" scope="col">Adresse de votre structure </th>
+                    <th style="color:#00a241;" scope="col">Vos options pour cette structure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> {{structure.user.email}} </td>
+                    <td> {{structure.user.address}} à {{structure.user.city}} </td>
+                    <td>                 
+                        {% for option in structure.options %}
+                        {% if structure.options %}
+                            {{option.NameOption}} | 
+                        {% endif %}
+                        {% endfor %} 
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
 {% endif %}
 
 {% if is_granted('ROLE_STRUCTURE') %}
@@ -74,6 +107,23 @@
     </div>
 </div>
 
+<div>
+    <div class="text-center">
+        <h3> Vos options actives : </h3>
+    </div>
+    <div class="text-center">
+        <span>
+        {# Problème de récupération des options pour une structure NE FONCTIONNE PAS#}
+        {% for structure in structures %}
+            {% for option in structure.options %}
+                {% if option.NameOption %}
+                    {{option.NameOption}} | 
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </span>
+    </div>
+</div>
 
     <div class="text-center">
         <div class="text-center">

@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\FranchiseMain;
 use App\Entity\Option;
 use App\Entity\StructureMain;
 use App\Entity\User;
@@ -40,12 +41,21 @@ class StructureMainType extends AbstractType
             'choice_label'=>function($email){
             return $email->getEmail();
         },
-        'label' => 'Merci de confirmer l\'adresse mail de votre structure. ',
+        'label' => 'Merci de vérifier que c\'est bien votre email ',
             'attr' => [
                 'class' => 'form-control '
             ],
             'placeholder'=>'Choisissez votre email dans la liste',
 
+        ])
+
+        ->add('FranchiseMain', EntityType::class, [
+            'required' => false,
+            'class' => FranchiseMain::class,
+            'attr' => [
+                'class' => 'select2'
+            ],
+            'label' => 'Veuillez sélectionner le franchisé adéquat avec la structure'
         ])
         ;
     }
