@@ -1,0 +1,50 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(24, 24, 24);
+}
+
+.main_img {
+    width: 100%;
+    position:relative;
+    margin: 0%;
+    padding: 0%;
+}
+
+.flex_main {
+    display: flex;
+    justify-content: center;
+ }
+
+ .position_change {
+    position:absolute;
+    margin-top: 74%;
+}
+
+.font_contact {
+    font-size: 15px;
+    color:white;
+    text-shadow: 3px 2px 2px black;
+}
+
+@media (min-width:750px) {
+    .position_change {
+        position:absolute;
+        margin-top: 68%;
+    }
+
+    .font_contact {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:1000px) {
+    .position_change {
+        position:absolute;
+        margin-top: 30%;
+    }
+
+    .font_contact {
+        font-size: 21px;
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{#METTRE LA DESCRIPTION DU SITE POUR LE SEO#}"/>
+    <link rel="icon" href="{{asset('Ressources/icone_header.png')}}"> {# Icone à mettre pour la barre de navigation #}
+    <title> {% block title %} Athletice Formulaire de Contact {% endblock %} </title>
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
+    <link rel="stylesheet" href="{{asset('contact_form.css')}}">
+</head>
+
+<body>
+
+    <div class="flex_main">
+        <img class="main_img" src="{{ asset('Ressources/background_accueil.png') }}">
+
+    <form method="post" class="position_change">
+        <div class="font_contact">
+        {{form_start(form)}}
+            {{form_row(form.firstname, {label:'Prénom'} )}}
+            {{form_row(form.name, {label:'Nom'})}}
+            {{form_row(form.email)}}
+            {{form_row(form.subject, {label:'Sujet'})}}
+            {{form_row(form.message)}}
+
+            {{form_row(form.submit)}}
+        {{form_rest(form)}}
+        </div>
+        <a class="btn btn-light" href="{{ path('app_login') }}">Précédent</a>
+
+    </form>
+
+    </div>
+
+    <script src="{{asset('header-footer_script.js')}}"></script>
+</body>
+</html>

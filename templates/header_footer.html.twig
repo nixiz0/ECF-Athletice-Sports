@@ -48,7 +48,7 @@
         <div class="list_pages">
             <div class="sous_nav">
                 {% if app.user %}
-                    <a class="txt_nav" href="{{ path('app_dashboard')}}"> Dashboard </a>
+                    <a class="txt_nav" href="{{ path('app_home')}}"> Home </a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <a class="txt_nav" href="{{ path('app_user_index')}}"> Utilisateurs </a>     

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{#METTRE LA DESCRIPTION DU SITE POUR LE SEO#}"/>
+    <link rel="icon" href="{{asset('Ressources/icone_header.png')}}"> {# Icone à mettre pour la barre de navigation #}
+    <title> {% block title %} Athletice Envoyé {% endblock %} </title>
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
+    <link rel="stylesheet" href="{{asset('contact_form.css')}}">
+</head>
+
+<body>
+
+    <div class="flex_main">
+        <img class="main_img" src="{{ asset('Ressources/background_accueil.png') }}">
+
+        <form method="post" class="position_change">
+            <h2 class="alert alert-success"> Votre demande a été envoyé avec succès !</h2>
+            <a class="btn btn-light" href="{{ path('app_login') }}">Précédent</a>
+        </form>
+    </div>
+    <script src="{{asset('header-footer_script.js')}}"></script>
+</body>
+</html>
