@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -30,13 +32,21 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository): Response
+    public function edit(Request $request, User $user, UserRepository $userRepository, MailerInterface $mailer): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->add($user, true);
+
+            $email = (new Email())
+            ->from('admin@athletice.com')
+            ->to($user->getEmail())
+            ->subject('Modification de votre compte Utilisateur')
+            ->html('Nous avons effectué une modification dans vos données d\'utilisateur');            
+
+        $mailer->send($email);
 
             $this->addFlash(
                 'success',
@@ -53,11 +63,20 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    public function delete(Request $request, User $user, UserRepository $userRepository, MailerInterface $mailer): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user, true);
         }
+
+        $email = (new Email())
+            ->from('admin@athletice.com')
+            ->to($user->getEmail())
+            ->subject('Suppression de votre compte Utilisateur')
+            ->html('Nous avons supprimé votre compte Utilisateur');            
+
+        $mailer->send($email);
+
             $this->addFlash(
                 'success',
                 "Suppression d'un utilisateur avec succès"
