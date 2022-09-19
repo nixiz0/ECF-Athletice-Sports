@@ -31,11 +31,11 @@ class StructureMainType extends AbstractType
             'choice_label'=>function($email){
             return $email->getEmail();
         },
-        'label' => 'Merci de vérifier que c\'est bien votre email ',
+        'label' => 'Merci de vérifier que c\'est bien la bonne adresse email ',
             'attr' => [
                 'class' => 'form-control '
             ],
-            'placeholder'=>'Choisissez votre email dans la liste',
+            'placeholder'=>'Choisissez l\'email de la structure dans la liste',
 
         ])
 

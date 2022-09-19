@@ -5,151 +5,49 @@
 {% block body %}
     <link rel="stylesheet" href="{{ asset('structures.css') }}">
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <h1 class="text-center font_title_structure"> Nos Structures </h1>
-    {% endif %}
-
-    {% if is_granted('ROLE_FRANCHISE') %}
-        <h1 class="text-center font_title_structure"> Bienvenue dans vos Structures </h1>
-    {% endif %}
-
-    {% if is_granted('ROLE_STRUCTURE') %}
-        <h1 class="text-center font_title_structure"> Bienvenue dans votre Structure </h1>
-    {% endif %}
-
-
-{% if is_granted('ROLE_ADMIN') %}
-    {% for structure in structures %}
-    <div style="margin-top: 3%;">
-        <div class="text-center franchise_email">
-            <h2> Le Franchisé : {{structure.franchisemain}} </h2>
-        </div>
-
-        <table class="table table-bordered table-dark text-center font_structure">
-            <thead>
-                <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénom</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Adresse</th>
-                    <th scope="col">Options Actif</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> {{structure.user.name}} </td>
-                    <td> {{structure.user.firstname}} </td>
-                    <td> {{structure.user.email}} </td>
-                    <td> {{structure.user.address}} à {{structure.user.city}}</td>
-                    <td>
-                        {% for option in structure.options %}
-                            {% if option.isactive == true %}
-                                {{option.NameOption}} | 
-                            {% endif %}
-                        {% endfor %}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="edit_structure">
-            <span> Options de structure</span>
-            {% if structure.isactive == false %} 
-                    <a class="btn btn-danger font_button_active" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Désactivé </a> 
-            {% else %}
-                    <a class="btn btn-success font_button_active" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Activé </a> 
-            {% endif %}
-        </div>
-    </div>
-    {% endfor %}
-{% endif %}
-
-{% if is_granted('ROLE_FRANCHISE') %}
-    <div class="text-center font_title_franchise">
-        <span> {{app.user.name}}</span>
-        <span> {{app.user.firstname}}</span>
-    </div>
+    <h1 class="text-center font_title_structure"> Nos Structures </h1>
 
     {% for structure in structures %}
-        <table class="table table-bordered table-dark text-center franchise_structure">
-            <thead>
-                <tr>
-                    <th style="color:#56b0ff;" scope="col">Email de votre structure </th>
-                    <th style="color:#bc0000;" scope="col">Adresse de votre structure </th>
-                    <th style="color:#00a241;" scope="col">Vos options pour cette structure</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> {{structure.user.email}} </td>
-                    <td> {{structure.user.address}} à {{structure.user.city}} </td>
-                    <td>                 
-                        {% for option in structure.options %}
-                        {% if structure.options %}
-                            {{option.NameOption}} | 
-                        {% endif %}
-                        {% endfor %} 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div style="margin-top: 3%;">
+            <div class="text-center franchise_email">
+                <h2> Le Franchisé : {{structure.franchisemain}} </h2>
+            </div>
+
+            <table class="table table-bordered table-dark text-center font_structure">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Options Actif</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{structure.user.name}} </td>
+                        <td> {{structure.user.firstname}} </td>
+                        <td> {{structure.user.email}} </td>
+                        <td> {{structure.user.address}} à {{structure.user.city}}</td>
+                        <td>
+                            {% for option in structure.options %}
+                                {% if option.isactive == true %}
+                                    {{option.NameOption}} | 
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="edit_structure">
+                <span> Options de structure</span>
+                {% if structure.isactive == false %} 
+                        <a class="btn btn-danger font_button_active" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Désactivé </a> 
+                {% else %}
+                        <a class="btn btn-success font_button_active" href="{{ path('app_structure_main_edit', {'id': structure.id}) }}"> Activé </a> 
+                {% endif %}
+            </div>
+        </div>
     {% endfor %}
-{% endif %}
-
-{% if is_granted('ROLE_STRUCTURE') %}
-<div class="font_structure_data">
-    <div class="text-center">
-        <span> {{app.user.name}}</span>
-        <span> {{app.user.firstname}}</span>
-    </div>
-    <div class="text-center">
-        <span> {{app.user.email}}</span>
-    </div>
-</div>
-
-<div>
-    <div class="text-center">
-        <h3> Vos options actives : </h3>
-    </div>
-    <div class="text-center">
-        <span>
-        {# Problème de récupération des options pour une structure NE FONCTIONNE PAS#}
-        {% for structure in structures %}
-            {% for option in structure.options %}
-                {{option.NameOption}} | 
-            {% endfor %}
-        {% endfor %}
-        </span>
-    </div>
-</div>
-
-    <div class="text-center">
-        <div class="text-center">
-            <img class="main_img_pub" style="border-radius:10%;" src="{{ asset('Ressources/pub_structure.png') }}">
-        </div>
-        <h4 class="title_pub"> Nouveauté d'option marketing : Livre de nutrition </h4>
-            <span class="txt_pub"> Nous avons ajouté plusieurs livres de nutritions, nous avons sélectioné pour vous les meilleurs livres en terme d'alimentation.
-                Vous pouvez dès maintenant vous les procurer si vous avez l'option marketing de livre spéciale nutrition. 
-            </span>
-
-        <div class="text-center">
-            <img class="img_pub" src="{{ asset('Ressources/pub_livres.png') }}">
-        </div>
-    </div>
-
-    <div class="text-center">
-        <h4 class="title_pub"> Nous vous proposons du nouveau matériel de sport </h4>
-            <span class="txt_pub"> Barre de traction, élastique, banc de gainage... nous mettons à disposition tout ce matériel que vous pouvez
-                prendre pour vendre dans votre salle de sport.
-            </span>
-            <p style="font-style: italic;" class="txt_pub"> Si vous n'avez pas encore l'option matériel sportif, le premier mois nous
-                vous le faisons à -50% !
-            </p>
-
-        <div class="text-center">
-            <img class="img_pub" src="{{ asset('Ressources/pub_materiel.png') }}">
-        </div>
-    </div>
-{% endif %}
-
 {% endblock %}

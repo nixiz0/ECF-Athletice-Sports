@@ -8,7 +8,13 @@
     {% if is_granted('ROLE_ADMIN') %}
         <h1 class="text-center franchise_title"> Nos Franchises </h1>
     {% else %}
-        <h1 class="text-center franchise_title"> Bienvenue dans votre Franchise </h1>
+            {% if app.user.franchisemains.isactive == true %}
+                <h1 class="text-center franchise_title"> Bienvenue dans votre Franchise </h1>
+            {% endif %}
+
+            {% if app.user.franchisemains.isactive == false %}
+                <h1 class="text-center franchise_title alert alert-danger"> Votre compte est désactivé </h1>
+            {% endif %}
     {% endif %}
 
 {% if is_granted('ROLE_ADMIN') %}
@@ -43,6 +49,8 @@
 {% endif %}
 
 {% if is_granted('ROLE_FRANCHISE') %}
+{% if app.user.franchisemains.isactive == true %}
+
     <div class="text-center font_franchise_index">
         <span style="font-style: bold;"> {{app.user.name}}</span>
         <span style="font-style: bold;"> {{app.user.firstname}}</span>
@@ -73,7 +81,8 @@
             <img class="img_boisson_cereales" src="{{ asset('Ressources/cereal_bar.png') }}">
         </div>
     </div>
-
+    
+{% endif %}
 {% endif %}
 
 {% endblock %}

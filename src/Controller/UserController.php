@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\FranchiseMainRepository;
+use App\Repository\OptionRepository;
+use App\Repository\StructureMainRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +27,14 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
-    public function show(User $user): Response
+    public function show(User $user, FranchiseMainRepository $franchiseMainRepository, StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
     {
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'structures' => $structureMainRepository->findAll(),
+            'options' => $optionRepository->findAll(),
+            'users' => $userRepository->findAll(),
+            'franchises' => $franchiseMainRepository->findAll(),
         ]);
     }
 
