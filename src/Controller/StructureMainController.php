@@ -6,6 +6,7 @@ use App\Entity\StructureMain;
 use App\Form\StructureMainType;
 use App\Repository\OptionRepository;
 use App\Repository\StructureMainRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class StructureMainController extends AbstractController
 {
     #[Route('/', name: 'app_structure_main_index', methods: ['GET'])]
-    public function index(StructureMainRepository $structureMainRepository, OptionRepository $optionRepository): Response
+    public function index(StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
     {
         return $this->render('structure_main/index.html.twig', [
             'structures' => $structureMainRepository->findAll(),
             'options' => $optionRepository->findAll(),
+            'users' => $userRepository->findAll(),
         ]);
     }
 

@@ -25,16 +25,6 @@ class StructureMainType extends AbstractType
             ],
         ])
 
-        ->add('options', EntityType::class, [
-            'class' => Option::class,
-            'label' => 'Les Options de la structure',
-            'label_attr' => [
-                'class' => 'form-label mt-4'
-            ],
-            'choice_label' => 'NameOption',
-            'multiple' => true,
-            'expanded' => true,
-        ])
         ->add('user', EntityType::class, [
             'required' => false,
             'class' => User::class,
@@ -56,6 +46,18 @@ class StructureMainType extends AbstractType
                 'class' => 'select2'
             ],
             'label' => 'Veuillez sélectionner le franchisé adéquat avec la structure'
+        ])
+
+        
+        ->add('options', EntityType::class, [
+            'class' => Option::class,
+            'label' => 'Les Options de la structure',
+            'label_attr' => [
+                'class' => 'form-label mt-4'
+            ],
+            'choice_label' => 'NameOption',
+            'multiple' => true,
+            'expanded' => true,
         ])
         ;
     }

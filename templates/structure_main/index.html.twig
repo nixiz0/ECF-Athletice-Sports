@@ -89,7 +89,7 @@
                             {{option.NameOption}} | 
                         {% endif %}
                         {% endfor %} 
-                </td>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -116,9 +116,7 @@
         {# Problème de récupération des options pour une structure NE FONCTIONNE PAS#}
         {% for structure in structures %}
             {% for option in structure.options %}
-                {% if option.NameOption %}
-                    {{option.NameOption}} | 
-                {% endif %}
+                {{option.NameOption}} | 
             {% endfor %}
         {% endfor %}
         </span>
