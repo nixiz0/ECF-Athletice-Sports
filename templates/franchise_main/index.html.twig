@@ -23,16 +23,16 @@
             <thead>
                 <tr>
                 <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
+                <th scope="col">Contrat</th>
                 <th scope="col">Email</th>
                 <th scope="col">Adresse</th>
-                <th scope="col">Actif</th>
+                <th scope="col">Actif / Contrat</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td> {{franchise.user.name}} </td>
-                    <td> {{franchise.user.firstname}} </td>
+                    <td> {{franchise.contrat}} </td>
                     <td> {{franchise.user.email}} </td>
                     <td> {{franchise.user.city}}</td>
                     <td> 
@@ -56,7 +56,7 @@
         <span style="font-style: bold;"> {{app.user.firstname}}</span>
     </div>
     <div class="text-center font_franchise_index">
-        <span> {{app.user.email}}</span>
+        <span style="font-style: italic;"> Votre contrat de Franchise :  {{app.user.franchiseMains.contrat}}</span>
     </div>
 
     <div class="main_pub_franchise">

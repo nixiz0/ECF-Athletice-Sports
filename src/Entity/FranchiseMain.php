@@ -24,6 +24,9 @@ class FranchiseMain
     #[ORM\OneToMany(mappedBy: 'franchiseMain', targetEntity: StructureMain::class)]
     private Collection $StructureMains;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $contrat = null;
+
     public function __construct()
     {
         $this->StructureMains = new ArrayCollection();
@@ -88,11 +91,20 @@ class FranchiseMain
         return $this;
     }
 
+    public function getContrat(): ?string
+    {
+        return $this->contrat;
+    }
 
+    public function setContrat(?string $contrat): self
+    {
+        $this->contrat = $contrat;
+
+        return $this;
+    }
 
     public function __toString()
     {
-        return $this->user;
+        return $this->contrat;
     }
-
 }

@@ -31,7 +31,7 @@ class StructureMainType extends AbstractType
             'choice_label'=>function($email){
             return $email->getEmail();
         },
-        'label' => 'Merci de vérifier que c\'est bien la bonne adresse email ',
+        'label' => 'Merci de vérifier l\'email ',
             'attr' => [
                 'class' => 'form-control '
             ],
@@ -45,7 +45,7 @@ class StructureMainType extends AbstractType
             'attr' => [
                 'class' => 'select2'
             ],
-            'label' => 'Veuillez sélectionner le franchisé adéquat avec la structure'
+            'label' => 'Sélectionnez le contrat de franchisé attaché à la structure'
         ])
 
         

@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="{{ asset('structures.css') }}">
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="text-center ">
-            <h1 class="title_font_show"> Utilisateur {{user.firstname}} {{user.name}} </h1>
-        </div>
+    <div class="text-center ">
+        <h1 class="title_font_show"> Utilisateur {{user.firstname}} {{user.name}} </h1>
+    </div>
     {% endif %}
 
     {% if is_granted('ROLE_FRANCHISE') %}
@@ -18,16 +18,18 @@
 
     {% else %}
         <h1 class="text-center alert alert-danger"> Votre Compte franchise est désactivé </h1>
+
     {% endif %}
     {% endif %}
 
     {% if is_granted('ROLE_STRUCTURE') %}
-        {% if user.StructureMains.IsActive == true %}
-            <h1 class="text-center font_title_structure"> Bienvenue dans votre Structure </h1>
-            
-        {% else %}
-            <h1 class="text-center alert alert-danger"> Votre Compte structure est désactivé </h1>
-        {% endif %}
+    {% if user.StructureMains.IsActive == true %}
+        <h1 class="text-center font_title_structure"> Bienvenue dans votre Structure </h1>
+
+    {% else %}
+        <h1 class="text-center alert alert-danger"> Votre Compte structure est désactivé </h1>
+
+    {% endif %}
     {% endif %}
 
 {% if is_granted('ROLE_ADMIN') %}
@@ -80,12 +82,15 @@
 
 {% if is_granted('ROLE_FRANCHISE') %}
 {% if user.franchiseMains.IsActive == true %}
+
     <div class="text-center font_title_franchise">
         <span> {{app.user.name}}</span>
         <span> {{app.user.firstname}}</span>
     </div>
 
     {% for structure in structures %}
+    {% if user.franchiseMains.contrat == structure.FranchiseMain %}
+
         <table class="table table-bordered table-dark text-center franchise_structure">
             <thead>
                 <tr>
@@ -101,13 +106,16 @@
                     <td>            
                         {% for option in structure.options %}
                             {% if structure.options %}
-                                {{option.NameOption}} | 
+                                {% if option.isactive == true %}
+                                    {{option.NameOption}} | 
+                                {% endif %}
                             {% endif %}
                         {% endfor %} 
                     </td>
                 </tr>
             </tbody>
         </table>
+    {% endif %}
 
     {% endfor %}
 {% endif %}
@@ -128,17 +136,16 @@
 </div>
 
 <div>
-    <div class="text-center">
-        <h3> Vos options actives : </h3>
+    <div class="text-center font_structure_data">
+        <h3 style="text-decoration: underline;"> Vos options actives : </h3>
     </div>
-    <div class="text-center">
+    <div class="text-center font_structure_data">
         <span>
-            {# Problème de récupération des options pour une structure NE FONCTIONNE PAS#}
-                {% for option in options %}
+            {% for option in user.StructureMains.options %}
                     {% if option.isactive == true %}
                         {{option.NameOption}} | 
                     {% endif %}
-                {% endfor %}
+            {% endfor %} 
         </span>
     </div>
 </div>

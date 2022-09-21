@@ -3,11 +3,9 @@
 namespace App\Form;
 
 use App\Entity\FranchiseMain;
-use App\Entity\StructureMain;
-use App\Entity\User;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,7 +21,9 @@ class FranchiseMainType extends AbstractType
                     'class' => 'form-check-input',
                 ],
             ])
-
+            ->add('contrat', TypeTextType::class, [
+                'label' => 'Nom du Franchisé + prix du contrat',
+            ])
             // ->add('user')
         ;
     }
