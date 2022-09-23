@@ -1,11 +1,16 @@
+
 .title_dash {
     font-size: 19px;
     text-decoration: underline;
+    animation-name: move;
+    animation-duration: 500ms;
 }
 
 .img_dash_main {
     width: auto;
     height: 140px;
+    animation-name: move;
+    animation-duration: 500ms;
 }
 
 .txt_main_dash {
@@ -13,6 +18,8 @@
     margin-left: 2%;
     margin-right: 2%;
     text-align: center;
+    animation-name: move;
+    animation-duration: 500ms;
 }
 
 .seperation {
@@ -116,4 +123,13 @@
         margin-bottom: 0%;
     }
     
+}
+
+@keyframes move {
+    from { transform: translateY(500px);
+
+    }
+    to { transform: translateY(0);
+
+    }
 }
