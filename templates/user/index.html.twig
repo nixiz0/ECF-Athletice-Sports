@@ -3,39 +3,48 @@
 {% block title %} Athletice Utilisateurs {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{asset('users.css')}}">
+    <link rel="stylesheet" href="{{asset('Users.css')}}">
+    <link rel="stylesheet" href="{{asset('Filtres.css')}}"> 
 
     <h1 class="text-center font_title" style="text-decoration: underline;"> Nos utilisateurs </h1>
 
 <div class="responsive_desktop">
+
+        <div class="main_filtres" style="margin-bottom:1%;">
+            <div class="btn btn-info" id="all"> Tous </div>
+            <div class="btn btn-info" id="mail"> Email </div>
+            <div class="btn btn-info" id="nom"> Prénom / Nom</div>
+            <div class="btn btn-info" id="address"> Adresse </div>
+        </div>
+
     <table class="table text-center font-size-user" style="padding:1.5%;">
         <thead>
             <tr>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Ville</th>
+                <th class="email">Email</th>
+                <th class="not_in_filtre">Roles</th>
+                <th class="name">Prénom</th>
+                <th class="name">Nom</th>
+                <th class="adress">Adresse</th>
+                <th class="adress">Ville</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.email }}</td>
+                <td  class="email">{{ user.email }}</td>
                 {% if user.roles == ["ROLE_ADMIN"] %}
-                    <td style="color:red;">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td  class="not_in_filtre" style="color:red;">{{ user.roles ? user.roles|json_encode : '' }}</td>
                 {% endif %}
                 {% if user.roles == ["ROLE_FRANCHISE"] %}
-                    <td style="color:blue;">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td  class="not_in_filtre" style="color:blue;">{{ user.roles ? user.roles|json_encode : '' }}</td>
                 {% endif %}
                 {% if user.roles == ["ROLE_STRUCTURE"] %}
-                    <td style="color:green;">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td  class="not_in_filtre" style="color:green;">{{ user.roles ? user.roles|json_encode : '' }}</td>
                 {% endif %}
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.address }}</td>
-                <td>{{ user.city }}</td>
+                <td  class="name">{{ user.firstname }}</td>
+                <td  class="name">{{ user.name }}</td>
+                <td  class="adress">{{ user.address }}</td>
+                <td  class="adress">{{ user.city }}</td>
                 <td class="adapting-button">
                     <a class="btn btn-info button_size" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
                     <a class="btn btn-success button_size" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
@@ -97,4 +106,7 @@
         <a class="btn btn-primary font_button" href="mailto:email_de_la_structure?subject=Formulaire%20d'inscription%20de%20structure%20chez%20Athletice%20Sports&body=Bonjour%2C%20bienvenue%20chez%20Athletice%20!%0D%0A%0D%0AVoici%20votre%20formulaire%20d'inscription%20pour%20votre%20structure%20%3A%20http%3A%2F%2F127.0.0.1%3A8000%2Fregister_structure%0D%0A%0D%0ACordialement%2C%20toute%20l'%C3%A9quipe%20d'Athletice%20Sports."> Inscription Structure </a>
     </div>
 </div>
+
+<script src="{{asset('Filtres.js')}}"></script>
+
 {% endblock %}

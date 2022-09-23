@@ -3,9 +3,17 @@
 {% block title %} Athletice Structure {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{ asset('structures.css') }}">
+    <link rel="stylesheet" href="{{ asset('Structures.css') }}">
+    <link rel="stylesheet" href="{{asset('Filtres.css')}}"> 
 
     <h1 class="text-center font_title_structure"> Nos Structures </h1>
+
+        <div class="main_filtres">
+            <div class="btn btn-info" id="all"> Tous </div>
+            <div class="btn btn-info" id="name"> Nom / Prénom </div>
+            <div class="btn btn-info" id="mail"> Email </div>
+            <div class="btn btn-info" id="option"> Adresse / Options </div>
+        </div>
 
     {% for structure in structures %}
         <div style="margin-top: 3%;">
@@ -16,20 +24,20 @@
             <table class="table table-bordered table-dark text-center font_structure">
                 <thead>
                     <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prénom</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Options Actif</th>
+                        <th scope="col" class="nom">Nom</th>
+                        <th scope="col" class="nom">Prénom</th>
+                        <th scope="col" class="email">Email</th>
+                        <th scope="col" class="options">Adresse</th>
+                        <th scope="col" class="options">Options Actif</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td> {{structure.user.name}} </td>
-                        <td> {{structure.user.firstname}} </td>
-                        <td> {{structure.user.email}} </td>
-                        <td> {{structure.user.address}} à {{structure.user.city}}</td>
-                        <td>
+                        <td class="nom"> {{structure.user.name}} </td>
+                        <td class="nom"> {{structure.user.firstname}} </td>
+                        <td class="email"> {{structure.user.email}} </td>
+                        <td class="options"> {{structure.user.address}} à {{structure.user.city}}</td>
+                        <td class="options">
                             {% for option in structure.options %}
                                 {% if option.isactive == true %}
                                     {{option.NameOption}} | 
@@ -50,4 +58,7 @@
             </div>
         </div>
     {% endfor %}
+
+<script src="{{asset('Filtres_Structure.js')}}"></script>
+
 {% endblock %}

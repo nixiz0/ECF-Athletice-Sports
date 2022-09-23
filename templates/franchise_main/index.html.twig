@@ -4,9 +4,11 @@
 
 {% block body %}
     <link rel="stylesheet" href="{{asset('franchises.css')}}">
+    <link rel="stylesheet" href="{{asset('Filtres.css')}}"> 
 
     {% if is_granted('ROLE_ADMIN') %}
         <h1 class="text-center franchise_title"> Nos Franchises </h1>
+
     {% else %}
             {% if app.user.franchisemains.isactive == true %}
                 <h1 class="text-center franchise_title"> Bienvenue dans votre Franchise </h1>
@@ -17,24 +19,33 @@
             {% endif %}
     {% endif %}
 
+
 {% if is_granted('ROLE_ADMIN') %}
+
+            <div class="main_filtres" style="margin-bottom:1%;">
+                <div class="btn btn-info" id="all"> Tous </div>
+                <div class="btn btn-info" id="contrat"> Nom / Contrat </div>
+                <div class="btn btn-info" id="mail"> Email </div>
+                <div class="btn btn-info" id="address"> Adresse </div>
+            </div>
+
     {% for franchise in franchises %}
         <table class="table table-bordered table-dark text-center font_size_admin">
             <thead>
                 <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Contrat</th>
-                <th scope="col">Email</th>
-                <th scope="col">Adresse</th>
-                <th scope="col">Actif / Contrat</th>
+                    <th scope="col" class="contract">Nom</th>
+                    <th scope="col" class="contract">Contrat</th>
+                    <th scope="col" class="email">Email</th>
+                    <th scope="col" class="adresse">Adresse</th>
+                    <th scope="col">Actif / Contrat</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td> {{franchise.user.name}} </td>
-                    <td> {{franchise.contrat}} </td>
-                    <td> {{franchise.user.email}} </td>
-                    <td> {{franchise.user.city}}</td>
+                    <td class="contract"> {{franchise.user.name}} </td>
+                    <td class="contract"> {{franchise.contrat}} </td>
+                    <td class="email"> {{franchise.user.email}} </td>
+                    <td class="adresse"> {{franchise.user.city}}</td>
                     <td> 
                         {% if franchise.isactive == false %} 
                                 <a class="btn btn-danger button_font" href="{{ path('app_franchise_main_edit', {'id': franchise.id}) }}"> Désactivé </a> 
@@ -84,5 +95,7 @@
     
 {% endif %}
 {% endif %}
+
+<script src="{{asset('Filtres_Franchise.js')}}"></script>
 
 {% endblock %}

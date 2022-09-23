@@ -3,8 +3,8 @@
 {% block title %} Utilisateur {{user.firstname}} {{user.name}} {% endblock %}
 
 {% block body %}
-<link rel="stylesheet" href="{{asset('users.css')}}">
-<link rel="stylesheet" href="{{ asset('structures.css') }}">
+<link rel="stylesheet" href="{{asset('Users.css')}}">
+<link rel="stylesheet" href="{{ asset('Structures.css') }}">
 
     {% if is_granted('ROLE_ADMIN') %}
     <div class="text-center ">
