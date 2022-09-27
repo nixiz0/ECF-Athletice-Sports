@@ -3,6 +3,10 @@
 {% block title %} Utilisateur {{user.firstname}} {{user.name}} {% endblock %}
 
 {% block body %}
+
+<!-- La page Show va être perçue différement selon le rôle du user connecté (établir les conditions et les différentes vues
+selon les rôles) -->
+
 <link rel="stylesheet" href="{{asset('Users.css')}}">
 <link rel="stylesheet" href="{{ asset('Structures.css') }}">
 

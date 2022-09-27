@@ -27,6 +27,7 @@ body {
     text-shadow: 3px 2px 2px black;
 }
 
+/* Media querie pour format Tablette */
 @media (min-width:750px) {
     .position_change {
         position:absolute;
@@ -38,6 +39,7 @@ body {
     }
 }
 
+/* Media querie pour format Ordinateur (écran) */
 @media (min-width:1000px) {
     .position_change {
         position:absolute;

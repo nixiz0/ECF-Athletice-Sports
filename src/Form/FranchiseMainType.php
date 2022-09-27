@@ -14,6 +14,7 @@ class FranchiseMainType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            /* Le checkboxType permet ici de pouvoir cocher ou non l'attribus IsActive pour savoir si la franchise est active ou non */
             ->add('IsActive', CheckboxType::class, [
                 'label' => 'Actif',
                 'required' => false,

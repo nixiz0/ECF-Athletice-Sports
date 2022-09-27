@@ -17,6 +17,7 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
+    /* Formulaire de création d'un utilisateur ayant le rôle d'administrateur (donc ici rôle pour l'équipe marketing) */
     #[Route('/register_admin', name: 'app_register_admin')]
     public function registerAdmin(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthentificatorAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -25,7 +26,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // Encodage du mot de passe par fonction de hashage :
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -35,7 +36,6 @@ class RegistrationController extends AbstractController
             $user->setRoles(['ROLE_ADMIN']);
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(
                 $user,
@@ -49,6 +49,7 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+    /* Formulaire d'inscription d'utilisateur ayant le rôle franchise */
     #[Route('/register_franchise', name: 'app_register_franchise')]
     public function registerFranchise(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthentificatorAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -60,7 +61,7 @@ class RegistrationController extends AbstractController
             $franchise = new FranchiseMain();
             $franchise->setIsActive(1);
             $user->setFranchiseMains($franchise);
-            // encode the plain password
+            // Encodage du mot de passe par fonction de hashage :
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -71,7 +72,6 @@ class RegistrationController extends AbstractController
             $entityManager->persist($franchise);
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(
                 $user,
@@ -85,6 +85,7 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+    /* Formulaire d'inscription d'utilisateur ayant le rôle de structure (salle de sport) */
     #[Route('/register_structure', name: 'app_register_structure')]
     public function registerStructure(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthentificatorAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -96,7 +97,7 @@ class RegistrationController extends AbstractController
             $structure = new StructureMain();
             $structure->setIsActive(1);
             $user->setStructureMains($structure);
-            // encode the plain password
+            // Encodage du mot de passe par fonction de hashage :
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -107,7 +108,6 @@ class RegistrationController extends AbstractController
             $entityManager->persist($structure);
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(
                 $user,

@@ -30,7 +30,7 @@
         </thead>
         <tbody>
         {% for user in users %}
-            <tr>
+            <tr class="table_item">
                 <td  class="email">{{ user.email }}</td>
                 {% if user.roles == ["ROLE_ADMIN"] %}
                     <td  class="not_in_filtre" style="color:red;">{{ user.roles ? user.roles|json_encode : '' }}</td>

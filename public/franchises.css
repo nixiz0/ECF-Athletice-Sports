@@ -63,6 +63,7 @@
     justify-content: center;
 }
 
+/* Responsive adaptation pour format ordinateur */
 @media (min-width:750px) { 
     .font_size_admin {
         font-size: 22px;

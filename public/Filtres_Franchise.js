@@ -1,8 +1,12 @@
+/* Création de notre fonction showContrat */
 const showContrat = () => {
+    /* On va chercher ici nos élément de notre DOM html */
     let contract = document.getElementsByClassName("contract");
     let email = document.getElementsByClassName("email");
     let adresse = document.getElementsByClassName("adresse");
 
+    /* Mise en place de notre boucle pour récupérer toutes les lettres des mots 
+    et ainsi les faire disparaîtres / apparaîtres (selon la condition) */
     for(i=0; i < contract.length; i++) {
         contract[i].style.fontSize = "1.5em";
     }
@@ -14,6 +18,7 @@ const showContrat = () => {
         }
 }
 
+/* Même principe qu'au dessus sauf que l'on change l'élément que l'on va afficher (ici l'email) */
 const showEmail = () => {
     let email = document.getElementsByClassName("email");
     let contract = document.getElementsByClassName("contract");
@@ -62,7 +67,10 @@ const showAll = () => {
     }
 }
 
+/* On récupère les éléments du DOM html popur ici les définir comme bouton */
 let buttonContrat = document.getElementById("contrat");
+/* On place une écoute d'évènement qui réagira au clique de la souris et qui (une fois cliqué) 
+nous donnera accès à la fonction indiqué dans les parenthèses */
 buttonContrat.addEventListener("click", showContrat);
 
 let buttonEmail = document.getElementById("mail");

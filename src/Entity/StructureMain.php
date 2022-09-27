@@ -56,12 +56,10 @@ class StructureMain
 
     public function setUser(?User $user): self
     {
-        // unset the owning side of the relation if necessary
         if ($user === null && $this->user !== null) {
             $this->user->setStructureMains(null);
         }
 
-        // set the owning side of the relation if necessary
         if ($user !== null && $user->getStructureMains() !== $this) {
             $user->setStructureMains($this);
         }

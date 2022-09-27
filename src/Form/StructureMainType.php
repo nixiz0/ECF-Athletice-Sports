@@ -24,7 +24,7 @@ class StructureMainType extends AbstractType
                 'class' => 'form-check-input',
             ],
         ])
-
+        /* On récupère nos données de notre entité User */
         ->add('user', EntityType::class, [
             'required' => false,
             'class' => User::class,
@@ -39,6 +39,7 @@ class StructureMainType extends AbstractType
 
         ])
 
+        /* On récupère nos données de notre entité Franchise */
         ->add('FranchiseMain', EntityType::class, [
             'required' => false,
             'class' => FranchiseMain::class,
@@ -48,7 +49,7 @@ class StructureMainType extends AbstractType
             'label' => 'Sélectionnez le contrat de franchisé attaché à la structure'
         ])
 
-        
+        /* On récupère nos données de notre entité Option */
         ->add('options', EntityType::class, [
             'class' => Option::class,
             'label' => 'Les Options de la structure',

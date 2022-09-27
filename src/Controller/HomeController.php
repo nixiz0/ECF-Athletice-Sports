@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    /* Fonction qui va nous rediriger vers le template twig de la page d'accueil */
     #[Route('/home', name: 'app_home')]
     public function index(): Response
     {

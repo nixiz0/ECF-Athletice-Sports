@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/franchise/main')]
 class FranchiseMainController extends AbstractController
 {
+    /* Fonction qui nous permet de voir toutes nos franchises et leurs données enregistrés */
     #[Route('/', name: 'app_franchise_main_index', methods: ['GET'])]
     public function index(FranchiseMainRepository $franchiseMainRepository): Response
     {        
@@ -21,6 +22,9 @@ class FranchiseMainController extends AbstractController
         ]);
     }
 
+    /* Fonction edit qui va chercher dans la route l'id de la franchsie à modifier puis après aller dans le formulaire
+    déjà existant de la franchise avec toutes ses données pour pouvoir si besoin remodifier, et si modification il y a, alors on re-persist
+    et re-flush pour mettre à jours les éléments dans notre BDD */
     #[Route('/{id}/edit', name: 'app_franchise_main_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, FranchiseMain $franchiseMain, FranchiseMainRepository $franchiseMainRepository): Response
     {

@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
+/* Route universel par défaut établit pour toutes les fonctions en dessous */
 #[Route('/user')]
 class UserController extends AbstractController
 {
@@ -26,6 +27,7 @@ class UserController extends AbstractController
         ]);
     }
 
+    /* Fonction permettant de voir toutes les données d'un utilisateur */
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user, FranchiseMainRepository $franchiseMainRepository, StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
     {
@@ -47,6 +49,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->add($user, true);
 
+            /* Si on modifie des infos personnels d'un utilisateurs alors on le prévient par email qu'une modification a été effectué */
             $email = (new Email())
             ->from('admin@athletice.com')
             ->to($user->getEmail())
@@ -76,6 +79,7 @@ class UserController extends AbstractController
             $userRepository->remove($user, true);
         }
 
+        /* Si on supprime un utilisateur alors on va récupérer son email et lui envoyer un mail pour le prévenir de la suppression de son compte */
         $email = (new Email())
             ->from('admin@athletice.com')
             ->to($user->getEmail())

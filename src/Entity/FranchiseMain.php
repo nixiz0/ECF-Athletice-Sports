@@ -103,6 +103,8 @@ class FranchiseMain
         return $this;
     }
 
+    /* ToString : fonction permettant de résoudre l'erreur du param converter 
+    Sans cette fonction notre param converter ne lis pas nos données sous forme de string et nous donne une erreur */
     public function __toString()
     {
         return $this->contrat;

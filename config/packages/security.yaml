@@ -19,7 +19,7 @@ security:
             custom_authenticator: App\Security\UserAuthentificatorAuthenticator
             logout:
                 path: app_logout
-                # where to redirect after logout
+                # Chemin qui va rediriger le user après sa déconnexion
                 target: app_login
             remember_me:
                 secret: '%kernel.secret%'

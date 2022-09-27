@@ -23,10 +23,13 @@ class ContactType extends AbstractType
             ->add('subject')
             ->add('message')
 
+            /* On fait notre bouton pour valider nos informations */
             ->add('submit', SubmitType::class, [
                 'attr' => [
+                    /* On place du bootstrap pour designer notre bouton */
                     'class' => 'btn btn-primary mt-4'
                 ],
+                /* Ici le label permet de mettre le texte que l'on souhaite à notre bouton */
                 'label' => 'Envoyer'
             ]);
         ;
