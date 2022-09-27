@@ -9,7 +9,7 @@
     <title> {% block title %} Athletice Sports {% endblock %} </title> {# Titre qui variera selon les pages #}
     {% block stylesheets %}  {% endblock %}
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstraps.css')}}">
-    <link rel="stylesheet" href="{{asset('styles_headers-footer.css')}}">
+    <link rel="stylesheet" href="{{asset('styles_header-footer.css')}}">
 </head>
 
 <body>
@@ -25,8 +25,7 @@
 
         <div> 
             <form class="search_bar" role="search">
-                <input class="label_search" type="search" id="search" placeholder="Rechercher..." aria-label="Search">
-                <button class="search_submit" type="submit"> <img src="{{asset('Ressources/emoji_search_logo.png')}}" height="28px" width="auto"> </button>
+                <img class="slogan" src="{{asset('Ressources/slogan_athletice.png')}}" id="slogan"> 
                 <div class="img_utilisateur">
                     <ul class="menuderoulant">
                         <li> <a href="#"> <img class="profil_utilisateur" src="{{asset('Ressources/utilisateur_profil_default.png')}}"> </a>

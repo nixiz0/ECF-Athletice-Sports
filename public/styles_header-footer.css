@@ -38,11 +38,8 @@ body {
 .search_bar {
     display: flex;
 }
-    .label_search {
-        display: none;
-    }
 
-    .search_submit {
+    .slogan{
         display: none;
     }
 
@@ -163,22 +160,17 @@ footer {
         width: 430px;
         height: 38px;
     }
-        .label_search {
-            display: flex;
-            font-size: 22px;
+
+        .slogan {
+            display: block;
+            width: auto;
+            height: 45px;
         }
 
-        .label_search:hover {
-            box-shadow: 0.5px 0.5px 8px #0b5ed7;
-            border-color: #0b5ed7;
+        .slogan:hover {
+            box-shadow: 0px 0px 5px white;
         }
-    
-        .search_submit {
-            display: flex;
-            background-color:#0b5ed7;
-            box-shadow: 1px 1px 2px #0b5ed7;
-        }
-    
+
     .profil_utilisateur {
         position:relative;
         top:-10px;
