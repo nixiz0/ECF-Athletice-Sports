@@ -1,0 +1,69 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\User;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
+class UserFixtures extends Fixture
+{
+    public function __construct(
+        private UserPasswordHasherInterface $passwordEncoder,
+
+    )
+    {  }
+
+    
+    public function implementUserAdmin(ObjectManager $manager): void
+    {
+        $admin = new User();
+        $admin->setEmail('admin@athletice.com');
+        $admin->setRoles(['ROLE_ADMIN']);
+
+        $admin->setPassword(
+            $this->passwordEncoder->hashPassword($admin, 'azerty')
+        );
+        $admin->setFirstname('administrateur');
+        $admin->setName('Athletice');
+        $admin->setAddress('none');
+        $admin->setCity('none');
+        $manager->persist($admin);
+        $manager->flush();
+    }
+
+    public function implementUserFranchise(ObjectManager $manager): void
+    {
+        $userFranchise = new User();
+        $userFranchise->setEmail('Pascal@yahoo.fr');
+        $userFranchise->setRoles(['ROLE_FRANCHISE']);
+
+        $userFranchise->setPassword(
+            $this->passwordEncoder->hashPassword($userFranchise, 'azerty')
+        );
+        $userFranchise->setFirstname('Pascal');
+        $userFranchise->setName('Douvre');
+        $userFranchise->setAddress('65 rue du Tournant');
+        $userFranchise->setCity('Paris');
+        $manager->persist($userFranchise);
+        $manager->flush();
+    }
+
+    public function implementUserStructure(ObjectManager $manager): void
+    {
+        $userStructure = new User();
+        $userStructure->setEmail('DeBenoit@outlook.fr');
+        $userStructure->setRoles(['ROLE_STRUCTURE']);
+
+        $userStructure->setPassword(
+            $this->passwordEncoder->hashPassword($userStructure, 'azerty')
+        );
+        $userStructure->setFirstname('Xavier');
+        $userStructure->setName('DeBenoit');
+        $userStructure->setAddress('20 rue des feuilles');
+        $userStructure->setCity('Paris');
+        $manager->persist($userStructure);
+        $manager->flush();
+    }
+}    
