@@ -39,7 +39,7 @@ class ContactController extends AbstractController
             //Email qui est envoyé une fois les informations rentrer dans notre BDD
             $email = (new TemplatedEmail())
             ->from($contact->getEmail())
-            ->to('admin@athletice.com')
+            ->to('MarketingAthlet_admin@athletice.com')
             ->subject($contact->getSubject())
             ->htmlTemplate('email/contact.html.twig')
 

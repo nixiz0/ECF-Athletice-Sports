@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
     public function implementUserAdmin(ObjectManager $manager): void
     {
         $admin = new User();
-        $admin->setEmail('admin@athletice.com');
+        $admin->setEmail('MarketingAthlet_admin@athletice.com');
         $admin->setRoles(['ROLE_ADMIN']);
 
         $admin->setPassword(

@@ -51,7 +51,7 @@ class UserController extends AbstractController
 
             /* Si on modifie des infos personnels d'un utilisateurs alors on le prévient par email qu'une modification a été effectué */
             $email = (new Email())
-            ->from('admin@athletice.com')
+            ->from('MarketingAthlet_admin@athletice.com')
             ->to($user->getEmail())
             ->subject('Modification de votre compte Utilisateur')
             ->html('Nous avons effectué une modification dans vos données d\'utilisateur');            
@@ -81,7 +81,7 @@ class UserController extends AbstractController
 
         /* Si on supprime un utilisateur alors on va récupérer son email et lui envoyer un mail pour le prévenir de la suppression de son compte */
         $email = (new Email())
-            ->from('admin@athletice.com')
+            ->from('MarketingAthlet_admin@athletice.com')
             ->to($user->getEmail())
             ->subject('Suppression de votre compte Utilisateur')
             ->html('Nous avons supprimé votre compte Utilisateur');            
