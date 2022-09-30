@@ -1,0 +1,274 @@
+/* POLICE ECRITURE SUR GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+/* Mes Éléments construit */
+.mg-low {
+    margin: 1%;
+}
+
+/* Paramètre impliquant toute la page */
+body {
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Développement de la partie Responsive Mobile/Tablette */
+.head_container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    padding:0.7%;
+}
+
+.main_title {
+    display: flex;
+    font-size: 28px;
+}
+
+.site_name {
+    margin-right: 5%; 
+}
+
+.img_sidebar {
+    margin-top: 4%;
+}
+
+.search_bar {
+    display: flex;
+}
+    .label_search {
+        display: none;
+    }
+
+    .search_submit {
+        display: none;
+    }
+
+.profil_utilisateur {
+    position:relative;
+    top:-10px;
+    right:18px;
+    height:33px;
+    width:auto;
+}
+    
+.menuderoulant {
+    list-style:none;
+}
+
+.sousmenu {
+    padding-right: 7%;
+    padding-bottom: 0.8%;
+    padding-top: 0.8%;
+}
+
+.menuderoulant li {
+    float:left;
+    width:auto;
+}
+
+.menuderoulant li a:link, .menuderoulant li a:visited {
+    display:block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menuderoulant .sousmenu {
+    background-color: white;
+    list-style:none;
+    display: none;
+    position:fixed;
+    width:auto;
+    right:20px;
+    top:40px;
+    font-size:22px;
+    border-radius: 5%;
+    border: 1px solid black;
+}
+
+.menuderoulant .sousmenu li {
+    float:none;
+}
+
+.menuderoulant .sousmenu li a:link, .menuderoulant li  a:visited {
+    display:block;
+    text-decoration: none;
+}
+
+.menuderoulant li:hover .sousmenu {
+    display: block;
+}
+
+.header2 {
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    padding: 0.5%;
+    margin-bottom: 2%;
+}
+
+.sous_nav {
+    display:flex;
+    justify-content:space-evenly;
+}
+    .txt_nav {
+        color:white;
+        text-decoration: none;
+        font-size:23px;
+    }
+
+footer {
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    padding: 0.5%;
+    margin-top: 2%;
+}
+
+    .sous_footer {
+        display: flex;
+        justify-content:space-evenly;
+    }
+
+        .txt_footer {
+            font-size:23px;
+            color:rgb(202, 202, 202);
+            text-decoration: none;
+        }
+
+/* Développement de la partie Responsive ordin/écrans */
+@media (min-width:750px) {
+    .head_container {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(36, 36, 36);
+        color: white;
+        padding:0.7%;
+    }
+
+    .main_title {
+        display: flex;
+        font-size: 28px;
+    }
+
+    .site_name {
+        margin-right: 20%;
+    }
+        
+    .img_sidebar {
+        margin-top: 4%;
+    }
+    
+    .search_bar {
+        width: 430px;
+        height: 38px;
+    }
+        .label_search {
+            display: flex;
+            font-size: 22px;
+        }
+
+        .label_search:hover {
+            box-shadow: 0.5px 0.5px 8px #0b5ed7;
+            border-color: #0b5ed7;
+        }
+    
+        .search_submit {
+            display: flex;
+            background-color:#0b5ed7;
+            box-shadow: 1px 1px 2px #0b5ed7;
+        }
+    
+    .profil_utilisateur {
+        position:relative;
+        top:-10px;
+        height:33px;
+        width:auto;
+    }
+    
+    .profil_utilisateur:hover {
+        background-color:white;
+        border-radius: 15%;
+    }
+
+    .menuderoulant {
+        list-style:none;
+    }
+    
+    .sousmenu {
+        padding-right: 1.7%;
+        padding-bottom: 0.8%;
+        padding-top: 0.8%;
+    }
+
+    .menuderoulant li {
+        float:left;
+        width:auto;
+    }
+    
+    .menuderoulant li a:link, .menuderoulant li a:visited {
+        display:block;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .menuderoulant .sousmenu {
+        background-color: white;
+        list-style:none;
+        display: none;
+        position:fixed;
+        width:auto;
+        right:20px;
+        top:51px;
+        font-size:22px;
+        border-radius: 5%;
+        border: 1px solid black;
+    }
+    
+    .menuderoulant .sousmenu li {
+        float:none;
+    }
+    
+    .menuderoulant .sousmenu li a:link, .menuderoulant li  a:visited {
+        display:block;
+        text-decoration: none;
+    }
+    
+    .menuderoulant li:hover .sousmenu {
+        display: block;
+    }       
+    .header2 {
+        width: 100%;
+        background-color: rgb(36, 36, 36);
+        padding: 0.5%;
+        margin-bottom: 2%;
+    }
+    
+    .sous_nav {
+        display:flex;
+        justify-content:space-evenly;
+    }
+        .txt_nav {
+            color:white;
+            text-decoration: none;
+            font-size:23px;
+        }
+    
+    footer {
+        width: 100%;
+        background-color: rgb(36, 36, 36);
+        padding: 0.5%;
+        margin-top: 2%;
+    }
+    
+        .sous_footer {
+            display: flex;
+            justify-content:space-evenly;
+        }
+    
+            .txt_footer {
+                font-size:23px;
+                color:rgb(202, 202, 202);
+                text-decoration: none;
+            }
+}
