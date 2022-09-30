@@ -31,7 +31,8 @@ class SitemapController extends AbstractController
                 'urls' => $urls,
                 'hostname' => $hostname,
             ]), 
-            200 //préciser le statut que l'on souhaite émettre
+            200
+            //préciser le statut que l'on souhaite émettre
         );
 
         //On précise bien le format que l'on va retourner dans notre contenu (ici du xml)
