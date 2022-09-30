@@ -24,14 +24,17 @@ For installing Athletice Sports you need :
 
 
 You can clone the repository in your machine with the command :
+
 git clone https://github.com/nixiz0/ECF-Athletice-Sports
 
 
 To have the dependencies :
+
 composer install
 
 
 To establish your database :
+
 Go into your .env and put your database (if you don't have a database you need to created one in XAMPP on your PhpMyAdmin)
 And replacing the : DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=14&charset=utf8"
 Then do the migrations (in your shell) :
