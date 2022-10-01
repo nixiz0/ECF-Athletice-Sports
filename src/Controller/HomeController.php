@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class HomeController extends AbstractController
 {
-    #[IsGranted('ROLE_USER')]
     /* Fonction qui va nous rediriger vers le template twig de la page d'accueil */
     #[Route('/home', name: 'app_home')]
     public function index(): Response

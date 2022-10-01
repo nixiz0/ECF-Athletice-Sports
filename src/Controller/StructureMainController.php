@@ -16,7 +16,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/structure/main')]
 class StructureMainController extends AbstractController
 {
-    #[IsGranted('ROLE_USER')]
     /* Fonction affichant toutes les structures et leurs options */
     #[Route('/', name: 'app_structure_main_index', methods: ['GET'])]
     public function index(StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response

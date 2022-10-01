@@ -14,7 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/option')]
 class OptionController extends AbstractController
 {
-    #[IsGranted('ROLE_USER')]
     #[Route('/', name: 'app_option_index', methods: ['GET'])]
     public function index(OptionRepository $optionRepository): Response
     {

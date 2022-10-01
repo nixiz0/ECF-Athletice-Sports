@@ -14,7 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/franchise/main')]
 class FranchiseMainController extends AbstractController
 {
-    #[IsGranted('ROLE_USER')]
     /* Fonction qui nous permet de voir toutes nos franchises et leurs données enregistrés */
     #[Route('/', name: 'app_franchise_main_index', methods: ['GET'])]
     public function index(FranchiseMainRepository $franchiseMainRepository): Response
