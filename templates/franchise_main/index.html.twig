@@ -3,6 +3,7 @@
 {% block title %} Athletice Franchise {% endblock %}
 
 {% block body %}
+{% if app.user %}
     <link rel="stylesheet" href="{{asset('franchise.css')}}">
     <link rel="stylesheet" href="{{asset('Filtres.css')}}"> 
 
@@ -98,4 +99,5 @@
 
 <script src="{{asset('Filtres_Franchise.js')}}"></script>
 
+{% endif %}
 {% endblock %}

@@ -3,6 +3,8 @@
 {% block title %} Athletice Franchise Activation {% endblock %}
 
 {% block body %}
+{% if app.user %}
+
 <link rel="stylesheet" href="{{asset('franchise.css')}}">
 
     <h1 class="text-center font_edit_title"> Activation de Franchise et Contrat </h1>
@@ -17,4 +19,5 @@
     </button>
 </div>
 
+{% endif %}
 {% endblock %}
