@@ -2,7 +2,7 @@ ECF Athletice Sports
 ---
 Video YouTube (in French) for the creation of this project :
 
-....
+https://www.youtube.com/watch?v=I1t2emU6pe4&t=1723s&ab_channel=HeyInitium
 
 ---
 Technical specification of the project
