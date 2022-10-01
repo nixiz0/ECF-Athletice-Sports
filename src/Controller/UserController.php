@@ -30,7 +30,6 @@ class UserController extends AbstractController
     }
 
     /* Fonction permettant de voir toutes les données d'un utilisateur */
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user, FranchiseMainRepository $franchiseMainRepository, StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
     {
