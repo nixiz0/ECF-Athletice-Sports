@@ -20,6 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/user')]
 class UserController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
@@ -29,6 +30,7 @@ class UserController extends AbstractController
     }
 
     /* Fonction permettant de voir toutes les données d'un utilisateur */
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user, FranchiseMainRepository $franchiseMainRepository, StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
     {
@@ -41,6 +43,7 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository, MailerInterface $mailer): Response
     {
@@ -73,6 +76,7 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository, MailerInterface $mailer): Response
     {

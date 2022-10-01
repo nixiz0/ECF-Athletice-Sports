@@ -17,6 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class StructureMainController extends AbstractController
 {
     /* Fonction affichant toutes les structures et leurs options */
+    #[IsGranted('ROLE_USER')]
     #[Route('/', name: 'app_structure_main_index', methods: ['GET'])]
     public function index(StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
     {
@@ -29,6 +30,7 @@ class StructureMainController extends AbstractController
 
     /* Comme pour les franchises on va récupérer l'id de la structure dans notre route puis afficher ses informations 
     pour pouvoir les modifier si besoin et donc changer quelques données dans notre BDD (si modification il y a eut)*/
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_structure_main_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, StructureMain $structureMain, StructureMainRepository $structureMainRepository): Response
     {
