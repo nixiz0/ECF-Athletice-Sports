@@ -14,7 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+#[IsGranted('ROLE_USER')]
 /* Route universel par défaut établit pour toutes les fonctions en dessous */
 #[Route('/user')]
 class UserController extends AbstractController
