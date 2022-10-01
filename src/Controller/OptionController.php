@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/option')]
 class OptionController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     #[Route('/', name: 'app_option_index', methods: ['GET'])]
     public function index(OptionRepository $optionRepository): Response
     {
@@ -24,6 +25,7 @@ class OptionController extends AbstractController
 
     /* Fonction permettant la création d'une nouvelle option, on va récupérer le formulaire puis établir de nouvelles données dedans
     puis le mettre à jour dans notre BDD */
+    #[IsGranted('ROLE_USER')]
     #[Route('/new', name: 'app_option_new', methods: ['GET', 'POST'])]
     public function new(Request $request, OptionRepository $optionRepository): Response
     {
@@ -48,6 +50,7 @@ class OptionController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_option_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Option $option, OptionRepository $optionRepository): Response
     {
@@ -72,6 +75,7 @@ class OptionController extends AbstractController
 
     /* Fonction pour supprimer une option, on va récupérer l'id de cette option puis après récupérer toutes ses informations rentrer dans les 
     attribus de formulaire et les supprimer définitivement */
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}', name: 'app_option_delete', methods: ['POST'])]
     public function delete(Request $request, Option $option, OptionRepository $optionRepository): Response
     {
