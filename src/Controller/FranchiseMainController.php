@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-#[IsGranted('ROLE_USER')]
 #[Route('/franchise/main')]
 class FranchiseMainController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     /* Fonction qui nous permet de voir toutes nos franchises et leurs données enregistrés */
     #[Route('/', name: 'app_franchise_main_index', methods: ['GET'])]
     public function index(FranchiseMainRepository $franchiseMainRepository): Response

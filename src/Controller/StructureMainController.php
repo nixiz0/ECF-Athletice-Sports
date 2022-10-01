@@ -13,10 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-#[IsGranted('ROLE_USER')]
 #[Route('/structure/main')]
 class StructureMainController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     /* Fonction affichant toutes les structures et leurs options */
     #[Route('/', name: 'app_structure_main_index', methods: ['GET'])]
     public function index(StructureMainRepository $structureMainRepository, OptionRepository $optionRepository, UserRepository $userRepository): Response
