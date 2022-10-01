@@ -3,6 +3,7 @@
 {% block title %} Athletice Structure Options Globale {% endblock %}
 
 {% block body %}
+{% if app.user %}
 <link rel="stylesheet" href="{{asset('Structure.css')}}">
 
     <h1 class="text-center title_edit_structure"> Activation de Structure et Options </h1>
@@ -15,4 +16,5 @@
             <a style="text-decoration: none; color:white;" href="{{ path('app_structure_main_index') }}"> précédent </a>
         </button>
     </div>
+{% endif %}
 {% endblock %}

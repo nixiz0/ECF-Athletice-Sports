@@ -3,6 +3,7 @@
 {% block title %} Athletice Structure {% endblock %}
 
 {% block body %}
+{% if app.user %}
     <link rel="stylesheet" href="{{asset('Structure.css')}}">
     <link rel="stylesheet" href="{{asset('Filtres.css')}}"> 
 
@@ -60,5 +61,5 @@
     {% endfor %}
 
 <script src="{{asset('Filtres_Structure.js')}}"></script>
-
+{% endif %}
 {% endblock %}
