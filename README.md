@@ -20,9 +20,9 @@ For installing Athletice Sports you need :
 - Composer 2.4.2
 - PHP 8
 - Scoop.sh :
- irm get.scoop.sh | iex
+ ``irm get.scoop.sh | iex``
 - Symfony 6 :
- scoop install symfony-cli
+ ``scoop install symfony-cli``
 - XAMPP 3.0.0 (if you want PhpMyAdmin and sql directly)
 
 ---
